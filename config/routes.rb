@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   post '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/google', as: :google_login
+
+  get '/', to: 'welcome#index', as: :root
 end
