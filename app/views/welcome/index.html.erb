@@ -1,6 +1,6 @@
 <h1>Welcome to Get The F(light) Out!</h1>
 
-<%= form_with do |f|  %>
+<%= form_with url: '/' do |f| %>
   <%= f.label :departure_airport, "Departure Airport: " %>
   <%= f.select :departure_airport, [["Denver International", "DEN"],
                                     ["Hartsfield/Jackson International", "ATL"],
@@ -19,7 +19,8 @@
   <% if @current_user %>
     <%= f.submit "Search Locations" %>
   <% else %>
-    <p><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
   <% end %>
 
 <% end %>
+
+    <p><%= link_to "Log In  with Google", google_login_path %> to search more than one search result</p>
