@@ -5,11 +5,11 @@ describe 'welcome page' do
     it 'I see a page with a city, date, and duration dropdown menu and lucky location button' do
       visit '/'
 
-      expect(page).to have_field('departure-airport')
+      expect(page).to have_field('departure_airport')
 
-      expect(page).to have_field('departure-date')
+      expect(page).to have_field('departure_date')
 
-      expect(page).to have_field('trip-duration')
+      expect(page).to have_field('trip_duration')
 
       expect(page).to have_button('Lucky Location')
 
