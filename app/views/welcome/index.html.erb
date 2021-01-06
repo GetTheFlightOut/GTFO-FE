@@ -1,0 +1,25 @@
+<h1>Welcome to Get The F(light) Out!</h1>
+
+<%= form_with do |f|  %>
+  <%= f.label :departure_airport, "Departure Airport: " %>
+  <%= f.select :departure_airport, [["Denver International", "DEN"],
+                                    ["Hartsfield/Jackson International", "ATL"],
+                                    ["Los Angeles International", "LAX"],
+                                    ["Chicago O'Hare International", "ORD"],
+                                    ["Kennedy International", "JFK"]] %>
+
+  <%= f.label :departure_date, "Departure Date: " %>
+  <%= f.date_field :departure_date, value: Date.today, min: Date.today %>
+
+  <%= f.label :trip_duration, "Trip duration: " %>
+  <%= f.number_field :trip_duration, min: 0 %> days
+
+  <%= f.submit "Lucky Location" %>
+
+  <% if @current_user %>
+    <%= f.submit "Search Locations" %>
+  <% else %>
+    <p><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
+  <% end %>
+
+<% end %>
