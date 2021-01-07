@@ -3,14 +3,19 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
+    @user = User.find_or_create_by(user_params) 
+    session[:uid] = @user.uid
+    session[:token] = request.env['omniauth.auth'][:credentials][:token]
     redirect_to '/'
   end
 
   protected
 
-  def auth_hash
-    request.env['omniauth.auth']
+  def user_params
+    auth_hash = request.env['omniauth.auth']
+    { uid: auth_hash[:uid],
+      email: auth_hash[:info][:email],
+      first_name: auth_hash[:info][:first_name],
+      last_name: auth_hash[:info][:last_name] }
   end
 end
