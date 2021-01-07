@@ -16,11 +16,11 @@
 
   <%= f.submit "Lucky Location" %>
 
-  <% if @current_user %>
+  <% if current_user %>
     <%= f.submit "Search Locations" %>
   <% else %>
+    <p><%= link_to "Log In  with Google", google_login_path %> to search more than one search result</p>
   <% end %>
 
 <% end %>
 
-    <p><%= link_to "Log In  with Google", google_login_path %> to search more than one search result</p>
