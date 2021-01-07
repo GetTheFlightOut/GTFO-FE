@@ -2,7 +2,7 @@
 
 ## Table of Contents
   - [What it does](#what-it-does)
-  - [How to Install GTFO-FE](#how-to-install-weather-api)
+  - [How to Install GTFO-FE](#how-to-install-gtfo-fe)
   - [Dependencies](#dependencies)
   - [Testing](#testing)
   - [Learning Goals](#learning-goals)
@@ -12,7 +12,7 @@
 
 ## What it does
 
-This project part of a Service-Oriented Architecture (SOA) application. The Weather-API serves as an intermediary, or microservice, from the Open Weather API and the GTFO-BE repo.
+This project part of a Service-Oriented Architecture (SOA) application. The GTFO-BE serves as pass through of API data from our microservice repos (Weather API and Flight API) to the GTFO-FE repo.
 
 ## How to Install GTFO-BE
 ## Dependencies
