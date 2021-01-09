@@ -1,12 +1,13 @@
 class FlightController < ApplicationController
   def show
-    response = Faraday.get("https://gtfo-be.herokuapp.com/") do |f|
+    #DREAM DRIVING HERE, CREATED FLIGHT PORO,
+    #CREATED SKELETON FOR SearchFacade
+    response = Faraday.get(ENV["DEVELOPMENT_HOST"]) do |f|
       f.params[:departure_airport] = lucky_params[:departure_airport]
       f.params[:departure_date] = lucky_params[:departure_date]
       f.params[:trip_duration] = lucky_params[:trip_duration]
     end
     json = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
   end
 
   private
