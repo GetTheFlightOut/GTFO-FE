@@ -1,27 +1,39 @@
 {
-    "data": {
-      "destination_city": "Denver",
-      "departure_date": "2021-01-06",
-      "trip_duration": 5,
-      "return_date": "2021-01-12",
-      "destination_city": "Paris",
-      "current": {
-        "temp": 85.7,
-        "feels_like": 91.4,
-        "weather":
-          {
-            "main": "Mist",
-            "description": "mist",
-          }
-        "alerts": [
+  data:
+  [
+      id: 1,
+      type: "Lucky!",
+      attributes:
         {
-          "sender_name": "National Weather Service",
-          "event": "Heat Advisory",
-          "start": 1597341600,
-          "end": 1597366800,
-          "description": "It's real hot out here!"
+          departure_date: "2021-01-06",
+          return_date: "2021-01-12",
+          trip_duration: 5,
+          departure_loc:
+            {
+              city: "Denver",
+              airport: "DEN",
+            },
+          destination_loc:
+            {
+              city: "Paris",
+              airport: "CDG"
+            },
+          airlines:
+            {
+              to: "delta",
+              back: "delta"
+            },
+          price: 800.00,
+          seat_availability: 5,
+          fly_duration: "8h 30m",
+          current_forecast:
+            {
+              is_available: true,
+              temp: 85.7,
+              feels_like: 91.4,
+              chance_precip: 20,
+              qualitative_forecast: "mist"
+            }
         }
-        ]
-      }
-    }
+      ]
 }
