@@ -14,6 +14,44 @@
 
 This project part of a Service-Oriented Architecture (SOA) application. The GTFO-BE serves as pass through of API data from our microservice repos (Weather API and Flight API) to the GTFO-FE repo.
 
+  ### API Endpoints pulled from backend
+  
+  Current API data pulled from the backend structure is:
+  
+  ```
+   {
+    "data": [{
+
+      "id": 123467,
+      "datetime_departure": "2021-01-07T16:45:10-07:00",
+      "datetime_arrival": "2021-01-07T16:47:12-07:00",
+      "departure_loc": {
+        "city": "Denver, CO",
+        "airport": "DEN"
+      },
+      "arrival_loc": {
+        "city": "Las Vegas, NV",
+        "airport": "LAS"
+      },
+      "airlines": {
+        "to": "frontier",
+        "back": "frontier"
+      },
+      "price": 48,
+      "seat_availability": 7,
+      "duration": "2h 1m",
+      "average_forecast": {
+        "is_available": true,
+        "average_temp": 65,
+        "chance_precip": 20,
+        "sky_coverage": 20,
+        "qualitative_forecast": "sunny"
+      }
+    }
+   ]
+  }
+```
+
 ## How to Install GTFO-BE
 ## Dependencies
 ## Testing
