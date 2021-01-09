@@ -41,6 +41,7 @@ gem 'figaro'
 gem 'faraday'
 
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -60,6 +61,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
