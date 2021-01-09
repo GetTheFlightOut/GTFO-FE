@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2', as: :google_login
 
   get '/', to: 'welcome#index', as: :root
+
+  get '/flights', to: 'flights#index'
 end
