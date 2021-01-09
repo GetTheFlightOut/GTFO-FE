@@ -13,13 +13,11 @@ describe 'Flights Service' do
 
     response = BackendService.flights_search(query_params)
 
-    require "pry"; binding.pry
-
     expect(response).to be_an(Hash)
     expect(response[:data]).to be_a(Array)
 
     expect(response[:data][0]).to have_key(:id)
-    expect(response[:data][0][:id]).to be_a(Integer)
+    expect(response[:data][0][:id]).to be_a(String)
 
     expect(response[:data][0]).to have_key(:attributes)
     expect(response[:data][0][:attributes]).to be_an(Hash)

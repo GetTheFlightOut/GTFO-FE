@@ -1,28 +1,41 @@
 class Flight
-  attr_reader :id,
-              :departure_date,
-              :return_date,
-              :departure_city,
-              :destination_city,
-              :departure_airline,
-              :return_airline,
-              :price,
-              :flight_duration,
-              :average_temp,
-              :qualitative_forecast
+  attr_reader :flight_id,
+             :departure_datetime,
+             :arrival_datetime,
+             :r_departure_datetime,
+             :r_arrival_datetime,
+             :origin_city,
+             :destination_city,
+             :price,
+             :trip_duration,
+             :max_f,
+             :min_f,
+             :max_c,
+             :min_c,
+             :day_feels_like_c,
+             :day_feels_like_f,
+             :sky_coverage,
+             :booking_link,
+             :weather_data_available
 
   def initialize(info)
-    require "pry"; binding.pry
-    @id = info[:id]
-    @departure_date = info[:datetime_departure]
-    @return_date = info[:datetime_arrival]
-    @departure_city = info[:departure_loc][:city]
-    @destination_city = info[:arrival_loc][:city]
-    @departure_airline = info[:airlines][:to]
-    @return_airline = info[:airlines][:back]
-    @price = info[:price]
-    @flight_duration = info[:duration]
-    @average_temp = info[:average_forcast][:average_temp]
-    @qualitative_forecast = info[:average_forcast][:qualitative_forecast]
+    @flight_id = info[:attributes][:flight_id].to_i
+    @departure_datetime = info[:attributes][:departure_datetime]
+    @arrival_datetime = info[:attributes][:arrival_datetime]
+    @r_departure_datetime = info[:attributes][:r_departure_datetime]
+    @r_arrival_datetime = info[:attributes][:r_arrival_datetime]
+    @origin_city = info[:attributes][:origin_city]
+    @destination_city = info[:attributes][:destination_city]
+    @price = info[:attributes][:price]
+    @trip_duration= info[:attributes][:trip_duration]
+    @max_f = info[:attributes][:max_f]
+    @min_f = info[:attributes][:min_f]
+    @max_c = info[:attributes][:max_c]
+    @min_c = info[:attributes][:min_c]
+    @day_feels_like_c = info[:attributes][:day_feels_like_c]
+    @day_feels_like_f = info[:attributes][:day_feels_like_f]
+    @sky_coverage = info[:attributes][:sky_coverage]
+    @booking_link = info[:attributes][:booking_link]
+    @weather_data_available = info[:attributes][:weather_data_available]
   end
 end
