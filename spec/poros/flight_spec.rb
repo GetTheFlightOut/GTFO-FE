@@ -2,63 +2,53 @@ require "rails_helper"
 
 describe "Flight" do
   it "exists and has attributes" do
-    # info =
-    # {
-    #   data:
-    #   [
-    #
-    #       id: 1,
-    #       type: "Lucky!",
-    #       attributes:
-    #         {
-    #           departure_date: "2021-01-06",
-    #           return_date: "2021-01-12",
-    #           trip_duration: 5,
-    #           departure_loc:
-    #             {
-    #               city: "Denver",
-    #               airport: "DEN",
-    #             },
-    #           destination_loc:
-    #             {
-    #               city: "Paris",
-    #               airport: "CDG"
-    #             },
-    #           airlines:
-    #             {
-    #               to: "delta",
-    #               back: "delta"
-    #             },
-    #           price: 800.00,
-    #           seat_availability: 5,
-    #           fly_duration: "8h 30m",
-    #           current_forecast:
-    #             {
-    #               is_available: true,
-    #               temp: 85.7,
-    #               feels_like: 91.4,
-    #               chance_precip: 20,
-    #               qualitative_forecast: "mist"
-    #             }
-    #         }
-    #       ]
-    # }
+    info =
+    {
+      data:
+      [
 
+          id: 1,
+          type: "Lucky!",
+          attributes:
+            {
+              departure_date: "2021-01-06",
+              return_date: "2021-01-12",
+              trip_duration: 5,
+              departure_loc:
+                {
+                  city: "Denver",
+                  airport: "DEN",
+                },
+              destination_loc:
+                {
+                  city: "Paris",
+                  airport: "CDG"
+                },
+              airlines:
+                {
+                  to: "delta",
+                  back: "delta"
+                },
+              price: 800.00,
+              seat_availability: 5,
+              fly_duration: "8h 30m",
+              current_forecast:
+                {
+                  is_available: true,
+                  temp: 85.7,
+                  feels_like: 91.4,
+                  chance_precip: 20,
+                  qualitative_forecast: "mist"
+                }
+            }
+          ]
+    }
+    #TRIED TO UTILIZE CURRENT_LUCKY_CALL FIXTURE FILE - UNSUCCESSFUL
+    #THE ABOVE HASH DATA STRUCTURE IS EXACT COPY OF FIXTURE AND WILL PASS TEST
 
-      # {
-      #   id: 1,
-      #   departure_date: "2021-01-06",
-      #   return_date: "2021-01-12",
-      #   departure_city: "Denver",
-      #   destination_city: "Paris",
-      #   departure_airline: "Delta",
-      #   return_airline: "Delta",
-      #   price: 800.00,
-      #   flight_duration: "8h 30m"
-      # }
-      json_response = File.read('spec/fixtures/current_lucky_call.json')
-      require "pry"; binding.pry
-    flight = Flight.new(json_response)
+    # json_response = File.read('spec/fixtures/current_lucky_call.json')
+    # flight = Flight.new(json_response)
+    flight = Flight.new(info)
     expect(flight).to be_a Flight
     expect(flight.id).to eq(info[:data][0][:id])
     expect(flight.departure_date).to eq(info[:data][0][:attributes][:departure_date])
