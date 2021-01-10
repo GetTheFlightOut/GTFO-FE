@@ -1,6 +1,6 @@
 class BackendService
   def self.conn
-    Faraday.new(url: ENV["BACKEND_URL"])
+    Faraday.new(url: ENV['BACKEND_URL'])
   end
 
   def self.trips_search(query)

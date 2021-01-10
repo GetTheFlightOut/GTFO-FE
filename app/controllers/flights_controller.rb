@@ -5,6 +5,10 @@ class FlightsController < ApplicationController
 
   def index
     @trips = SearchFacade.get_flights(flight_params)
+    if @trips.class == String
+      flash[:error] = @trips
+      redirect_to root_path
+    end
   end
 
   private
