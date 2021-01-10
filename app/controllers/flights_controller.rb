@@ -1,11 +1,6 @@
 class FlightsController < ApplicationController
   def show
-    trip = Rails.cache.read(params[:id])
-    if params[:trip]
-      @trip = params[:trip]
-    else
-      @trip = SearchFacade.get_lucky(flight_params)
-    end
+    @trip = Rails.cache.read(params[:id])
   end
 
   def index

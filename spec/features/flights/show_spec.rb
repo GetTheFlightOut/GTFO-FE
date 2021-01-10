@@ -20,5 +20,6 @@ describe 'when I click on a link to show a specific flight' do
     click_link "Houston"
 
     expect(current_path). to eq(flight_show_path("242"))
+    save_and_open_page
   end
 end
