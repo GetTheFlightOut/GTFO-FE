@@ -14,7 +14,6 @@ class Trip
              :min_c,
              :day_feels_like_c,
              :day_feels_like_f,
-             :sky_coverage,
              :booking_link,
              :description
 
@@ -34,7 +33,6 @@ class Trip
     @min_c = info[:attributes][:min_c]
     @day_feels_like_c = info[:attributes][:day_feels_like_c]
     @day_feels_like_f = info[:attributes][:day_feels_like_f]
-    @sky_coverage = info[:attributes][:sky_coverage]
     @booking_link = info[:attributes][:booking_link]
     @description = info[:attributes][:description]
   end

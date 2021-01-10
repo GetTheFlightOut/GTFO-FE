@@ -12,7 +12,7 @@ class FlightsController < ApplicationController
 
   def index
     # require "pry"; binding.pry
-    @flights = SearchFacade.get_flights(flight_params)
+    @trips = SearchFacade.get_flights(flight_params)
 
 
     # response = Faraday.get(ENV["BACKEND_URL"]) do |f|

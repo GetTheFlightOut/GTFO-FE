@@ -28,8 +28,7 @@ describe "Trip" do
                 "day_feels_like_c":-7.0499999999999545,
                 "day_feels_like_f":24.950000000000045,
                 "description":"clear sky",
-                "date":"2021-01-09T02:00:00+00:00",
-                "sky_coverage":20
+                "date":"2021-01-09T02:00:00+00:00"
               }
             }
     trip = Trip.new(info)
@@ -37,6 +36,5 @@ describe "Trip" do
     expect(trip.flight_id).to eq(242)
     expect(trip.departure_datetime).to eq("2021-01-30T10:07:00.000+00:00")
     expect(trip.description).to eq("clear sky")
-    expect(trip.sky_coverage).to eq(20)
   end
 end

@@ -6,15 +6,15 @@
     <th>Trip Duration</th>
     <th>Weather</th>
   </tr>
-  <% @flights.each do |flight| %>
+  <% @trips.each do |flight| %>
   <tr class="Flight" id="flight-<%=flight.flight_id%>">
     <td class="DestinationCity"><%= link_to flight.destination_city %></td>
     <td class="Price"><%= flight.price %></td>
     <td class="Duration"><%= flight.trip_duration %></td>
     <td class="Weather">High: <%= flight.max_f.round(1) %>, <br>
     <td>Low: <%= flight.min_f.round(1) %>, <br>
-        Feels Like: <%= flight.day_feels_like_f.round(1) %>, <br>
-        Cloud Coverage: <%= flight.sky_coverage %></td>
+      Feels Like: <%= flight.day_feels_like_f.round(1) %>, <br>
+      Weather Description: <%= flight.description %>, <br>
   </tr>
   <% end %>
 </table>
