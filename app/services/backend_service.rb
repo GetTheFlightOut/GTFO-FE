@@ -4,7 +4,7 @@ class BackendService
   end
 
   def self.trips_search(query)
-    response = conn.get('/flight_search') do |req|
+    response = conn.get('/api/v1/search') do |req|
       req.params[:departure_airport] = query[:departure_airport]
       req.params[:departure_date] = query[:departure_date]
       req.params[:trip_duration] = query[:trip_duration]

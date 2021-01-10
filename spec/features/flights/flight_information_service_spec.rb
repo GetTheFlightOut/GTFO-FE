@@ -4,7 +4,7 @@ describe 'flight service' do
   it 'will return flight data' do
     json = File.read('./spec/fixtures/flight_data_return.json')
     query = "?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3"
-    stub_request(:get, "#{ENV["BACKEND_URL"]}/flight_search#{query}").
+    stub_request(:get, "#{ENV["BACKEND_URL"]}/api/v1/search#{query}").
             to_return(status: 200, body: json, headers: {})
 
     query_params = {
