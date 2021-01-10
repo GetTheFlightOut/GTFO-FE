@@ -7,8 +7,9 @@
     <th>Weather</th>
   </tr>
   <% @trips.each do |trip| %>
+  <% Rails.cache.write(trip.flight_id, trip) %>
   <tr class="Flight" id="flight-<%=trip.flight_id%>">
-    <td class="DestinationCity"><%= link_to trip.destination_city %></td>
+    <td class="DestinationCity"><%= link_to trip.destination_city, flight_show_path(trip.flight_id) %></td>
     <td class="Price"><%= trip.price %></td>
     <td class="Duration"><%= trip.trip_duration %></td>
     <td class="Weather">High: <%= trip.max_f.round(1) %>, <br>
