@@ -4,7 +4,13 @@ class FlightsController < ApplicationController
   end
 
   def index
-    @trips = SearchFacade.get_flights(flight_params)
+    if params[:commit] == 'Search Locations'
+      @trips = SearchFacade.get_flights(flight_params)
+      @trips.each do |trip|
+        Rails.cache.write(trip.flight_id, trip)
+    elsif params[:commit] == 'Lucky Location'
+      # code
+    end
   end
 
   private
