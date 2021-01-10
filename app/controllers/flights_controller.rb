@@ -13,13 +13,16 @@ class FlightsController < ApplicationController
       end
       @trips.each do |trip|
         Rails.cache.write(trip.flight_id, trip)
+      end
     elsif params[:commit] == 'Lucky Location'
-      if @trips.class == String
-        flash[:error] = @trips
+      @trip = SearchFacade.get_lucky(flight_params)
+      if @trip.class == String
+        flash[:error] = @trip
         redirect_to root_path
         return
       end
-      # code
+      Rails.cache.write(@trip.flight_id, @trip)
+      redirect_to flight_show_path(@trip.flight_id)
     end
   end
 
