@@ -11,7 +11,7 @@ describe 'Flights Service' do
               :trip_duration => 5
               }
 
-    response = BackendService.flights_search(query_params)
+    response = BackendService.trips_search(query_params)
 
     expect(response).to be_an(Hash)
     expect(response[:data]).to be_a(Array)

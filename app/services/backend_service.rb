@@ -3,7 +3,7 @@ class BackendService
     Faraday.new(url: ENV["BACKEND_URL"])
   end
 
-  def self.flights_search(query)
+  def self.trips_search(query)
     response = conn.get('/flight_search') do |req|
       req.params[:departure_airport] = query[:departure_airport]
       req.params[:departure_date] = query[:departure_date]
