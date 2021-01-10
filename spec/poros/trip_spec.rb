@@ -29,8 +29,7 @@ describe "Trip" do
                 "day_feels_like_f":24.950000000000045,
                 "description":"clear sky",
                 "date":"2021-01-09T02:00:00+00:00",
-                "sky_coverage":20,
-                "weather_data_available":true
+                "sky_coverage":20
               }
             }
     trip = Trip.new(info)

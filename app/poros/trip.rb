@@ -16,7 +16,6 @@ class Trip
              :day_feels_like_f,
              :sky_coverage,
              :booking_link,
-             :weather_data_available,
              :description
 
   def initialize(info)
@@ -37,7 +36,6 @@ class Trip
     @day_feels_like_f = info[:attributes][:day_feels_like_f]
     @sky_coverage = info[:attributes][:sky_coverage]
     @booking_link = info[:attributes][:booking_link]
-    @weather_data_available = info[:attributes][:weather_data_available]
     @description = info[:attributes][:description]
   end
 end
