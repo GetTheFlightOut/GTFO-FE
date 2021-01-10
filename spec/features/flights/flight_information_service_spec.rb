@@ -7,6 +7,12 @@ describe 'flight service' do
     stub_request(:get, "#{ENV["BACKEND_URL"]}/flight_search#{query}").
             to_return(status: 200, body: json, headers: {})
 
+    query_params = {
+              :departure_airport => 'DEN',
+              :departure_date => '30/01/2021',
+              :trip_duration => 3
+              }
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
 
     visit '/'
@@ -15,23 +21,22 @@ describe 'flight service' do
     fill_in "departure_date", with: "2021/01/30"
     fill_in "trip_duration", with: 3
     click_button("Search Locations")
+    expect(page).to have_current_path(flights_path, ignore_query: true)
 
-    expect(page).to have_current_path('/flights')
+    expect(page).to have_css('.Flight', count: 5)
 
-    expect(page).to have_css('.flight', count: 4)
-
-    within(first('.flight')) do
-      expect(page).to have_css('.arrival-airport')
-      expect(page).to have_css('.city')
-      expect(page).to have_css('.carrier')
-      expect(page).to have_css('.weather')
+    within(first('.Flight')) do
+      expect(page).to have_css('.DestinationCity')
+      expect(page).to have_css('.Price')
+      expect(page).to have_css('.Duration')
+      expect(page).to have_css('.Weather')
     end
 
-    within(:xpath, '(//li[@class="flight"])[last()]') do
-      expect(page).to have_css('.arrival-airport')
-      expect(page).to have_css('.city')
-      expect(page).to have_css('.carrier')
-      expect(page).to have_css('.weather')
+    within(:xpath, '(//tr[@class="Flight"])[last()]') do
+      expect(page).to have_css('.DestinationCity')
+      expect(page).to have_css('.Price')
+      expect(page).to have_css('.Duration')
+      expect(page).to have_css('.Weather')
     end
   end
 end

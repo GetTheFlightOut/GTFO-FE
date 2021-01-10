@@ -1,4 +1,4 @@
-class Flight
+class Trip
   attr_reader :flight_id,
              :departure_datetime,
              :arrival_datetime,
@@ -16,7 +16,8 @@ class Flight
              :day_feels_like_f,
              :sky_coverage,
              :booking_link,
-             :weather_data_available
+             :weather_data_available,
+             :description
 
   def initialize(info)
     @flight_id = info[:attributes][:flight_id].to_i
@@ -37,5 +38,6 @@ class Flight
     @sky_coverage = info[:attributes][:sky_coverage]
     @booking_link = info[:attributes][:booking_link]
     @weather_data_available = info[:attributes][:weather_data_available]
+    @description = info[:attributes][:description]
   end
 end
