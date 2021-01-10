@@ -7,12 +7,6 @@ describe 'flight service' do
     stub_request(:get, "#{ENV["BACKEND_URL"]}/api/v1/search#{query}").
             to_return(status: 200, body: json, headers: {})
 
-    query_params = {
-              :departure_airport => 'DEN',
-              :departure_date => '30/01/2021',
-              :trip_duration => 3
-              }
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
 
     visit '/'
