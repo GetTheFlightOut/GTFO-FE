@@ -1,6 +1,16 @@
 <h1>Welcome to Get The F(light) Out!</h1>
 
+
+<h3>Gotta go? GTFO.</h3>
+
+<p>
+  Get The F(light) Out! is a travel application built for people who just want
+  to get out. Enter your origin airport, departure date and duration, and we'll
+  give you some great deals to choose from, complete with weather information.
+</p>
+
 <%= form_with url: '/flights', method: :get do |f| %>
+
   <%= f.label :departure_airport, "Departure Airport: " %>
   <%= f.select :departure_airport, [["Denver International", "DEN"],
                                     ["Hartsfield/Jackson International", "ATL"],
@@ -19,7 +29,7 @@
   <% if current_user %>
     <%= f.submit "Search Locations" %>
   <% else %>
-    <p><%= link_to "Log In  with Google", google_login_path %> to search more than one search result</p>
+    <p><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
   <% end %>
 
 <% end %>
