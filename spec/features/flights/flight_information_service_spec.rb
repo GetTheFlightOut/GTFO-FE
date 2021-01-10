@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'flight service' do
   it 'will return flight data' do
     json = File.read('./spec/fixtures/flight_data_return.json')
-    query = "?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3"
+    query = "?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=20"
     stub_request(:get, "#{ENV["BACKEND_URL"]}/api/v1/search#{query}").
             to_return(status: 200, body: json, headers: {})
 

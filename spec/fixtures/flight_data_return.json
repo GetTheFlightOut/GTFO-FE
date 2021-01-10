@@ -37,7 +37,7 @@
 	        "attributes":
 	          {
 	            "origin_city":"Denver",
-	            "destination_city":"Houston",
+	            "destination_city":"San Francisco",
 	            "origin_iata":"DEN",
 	            "destination_iata":"IAH",
 	            "latitude":29.9844444,
@@ -97,7 +97,7 @@
 			        "attributes":
 			          {
 			            "origin_city":"Denver",
-			            "destination_city":"Houston",
+			            "destination_city":"Atlanta",
 			            "origin_iata":"DEN",
 			            "destination_iata":"IAH",
 			            "latitude":29.9844444,
@@ -127,7 +127,7 @@
 				        "attributes":
 				          {
 				            "origin_city":"Denver",
-				            "destination_city":"Houston",
+				            "destination_city":"Miami",
 				            "origin_iata":"DEN",
 				            "destination_iata":"IAH",
 				            "latitude":29.9844444,
