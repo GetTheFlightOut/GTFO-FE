@@ -6,7 +6,6 @@ class SearchFacade
     Trip.new(flight_data[:data][0])
   end
 
-
   def self.get_flights(params)
     params[:limit] = 20
     flight_data = BackendService.trips_search(params)

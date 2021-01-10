@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index', as: :root
 
   get '/flights', to: 'flights#index'
+  get '/flights/:id', to: 'flights#show', as: :flight_show
 end
