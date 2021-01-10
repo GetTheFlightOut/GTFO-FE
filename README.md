@@ -17,7 +17,7 @@ This project part of a Service-Oriented Architecture (SOA) application. The GTFO
   ### API Endpoints pulled from backend
 
   Current API data pulled from the backend structure is:
-  
+
   ```
    {
     "data": [{
@@ -44,7 +44,6 @@ This project part of a Service-Oriented Architecture (SOA) application. The GTFO
         "is_available": true,
         "average_temp": 65,
         "description": "sunny"
-        "qualitative_forecast": "sunny"
       }
     }
    ]
