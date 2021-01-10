@@ -53,6 +53,16 @@ This project part of a Service-Oriented Architecture (SOA) application. The GTFO
 ## How to Install GTFO-BE
 ## Dependencies
 ## Testing
+
+Webmock is used for testing and can be toggled with the environment variable WEBMOCK, set as string 'true' or 'false'.
+
+Adding tests with http mocks can be done by wrapping the stub in an if statement, 
+```
+if ENV['WEBMOCK'] == 'true'
+  #code
+end
+```
+
 ## Learning Goals
 
   * Consume external APIs

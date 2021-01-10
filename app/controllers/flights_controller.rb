@@ -6,9 +6,19 @@ class FlightsController < ApplicationController
   def index
     if params[:commit] == 'Search Locations'
       @trips = SearchFacade.get_flights(flight_params)
+      if @trips.class == String
+        flash[:error] = @trips
+        redirect_to root_path
+        return
+      end
       @trips.each do |trip|
         Rails.cache.write(trip.flight_id, trip)
     elsif params[:commit] == 'Lucky Location'
+      if @trips.class == String
+        flash[:error] = @trips
+        redirect_to root_path
+        return
+      end
       # code
     end
   end

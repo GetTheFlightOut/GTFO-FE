@@ -2,8 +2,11 @@ describe 'Flights Service' do
   it 'can return flight search' do
     json = File.read('./spec/fixtures/flight_data_return.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=5&limit=20"
-    stub_request(:get, "#{ENV["BACKEND_URL"]}/api/v1/search#{query}").
-            to_return(status: 200, body: json, headers: {})
+
+    if ENV['WEBMOCK'] == 'true'
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
+        .to_return(status: 200, body: json, headers: {})
+    end
 
     query_params = {
               :departure_airport => 'DEN',
