@@ -4,6 +4,8 @@ class Trip
              :arrival_datetime,
              :r_departure_datetime,
              :r_arrival_datetime,
+             :r_departure_date,
+             :arrival_date,
              :origin_city,
              :destination_city,
              :price,
@@ -21,8 +23,10 @@ class Trip
     @flight_id = info[:attributes][:id].to_i
     @departure_datetime = info[:attributes][:departure_datetime]
     @arrival_datetime = info[:attributes][:arrival_datetime]
+    @arrival_date = date_convert(@arrival_datetime)
     @r_departure_datetime = info[:attributes][:r_departure_datetime]
     @r_arrival_datetime = info[:attributes][:r_arrival_datetime]
+    @r_departure_date = date_convert(@r_departure_datetime)
     @origin_city = info[:attributes][:origin_city]
     @destination_city = info[:attributes][:destination_city]
     @price = info[:attributes][:price]
@@ -35,5 +39,10 @@ class Trip
     @day_feels_like_f = info[:attributes][:day_feels_like_f]
     @booking_link = info[:attributes][:booking_link]
     @description = info[:attributes][:description]
+  end
+
+  def date_convert(date_time)
+    converted_time = DateTime.strptime(date_time, '%F')
+    converted_time.strftime('%F')
   end
 end
