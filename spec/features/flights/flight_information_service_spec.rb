@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'flight service' do
-  it 'will return flight data' do
+  it 'will return trip results for search locations' do
     json = File.read('./spec/fixtures/flight_data_return.json')
     query = '?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=20'
 
@@ -35,6 +35,27 @@ describe 'flight service' do
       expect(page).to have_css('.Duration')
       expect(page).to have_css('.Weather')
     end
+  end
+
+  it 'will return a trip results for lucky locations' do
+    json = File.read('./spec/fixtures/flight_data_single_return.json')
+    query = '?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=1'
+
+    if ENV['WEBMOCK'] == 'true'
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
+        .to_return(status: 200, body: json, headers: {})
+    end
+
+    visit '/'
+
+    select "Denver International", from: "departure_airport"
+    fill_in "departure_date", with: "2021/01/30"
+    fill_in "trip_duration", with: 3
+    click_button("Lucky Location")
+
+    expect(current_path).to eq(flight_show_path('242'))
+
+    expect(page).to have_content('Houston')
   end
 
   it 'returns error when too far out date given' do
