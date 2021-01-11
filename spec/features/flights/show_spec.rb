@@ -51,4 +51,29 @@ describe 'when I click on a link to show a specific flight' do
     expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 
+  it "can see and visit accomodation links customized for destination city and travel dates" do
+    json = File.read('./spec/fixtures/flight_data_return.json')
+    query = "?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=20"
+
+    if ENV['WEBMOCK'] == 'true'
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
+        .to_return(status: 200, body: json, headers: {})
+    end
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
+
+    visit '/'
+
+    select "Denver International", from: "departure_airport"
+    fill_in "departure_date", with: "2021/01/30"
+    fill_in "trip_duration", with: 3
+    click_button("Search Locations")
+
+    expect(page).to have_link("Houston")
+
+    click_link "Houston"
+
+    expect(page).to have_css(".TripAirbnb")
+    expect(page).to have_css(".TripHotels")
+  end
 end
