@@ -10,3 +10,12 @@
   <p class="TripFeels"><%= @trip.day_feels_like_f %></p>
   <p class="TripWeatherDesc"><%= @trip.description %></p>
   <p class="TripBooking"><%= @trip.booking_link %></p>
+
+
+  <p class="TripAirbnb">
+  <%= link_to "Explore Airbnb accomodations", "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
+  </p>
+
+  <p class="TripHotels">
+  <%= link_to "Explore Hotels.com accomodations", "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}" %>
+  </p>
