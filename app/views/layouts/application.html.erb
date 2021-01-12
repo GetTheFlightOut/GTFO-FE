@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-        <% if !current_user %>
+        <% unless current_user %>
           <%= link_to "Log In with Google", google_login_path, class: "navbar-brand" %>
         <% else %>
           <%= link_to "Logout", google_logout_path, class: "navbar-brand" %>
