@@ -27,6 +27,7 @@ describe 'flight service' do
       expect(page).to have_css('.Price')
       expect(page).to have_css('.Duration')
       expect(page).to have_css('.Weather')
+      expect(page).to have_css('.Weather_img')
     end
 
     within(:xpath, '(//tr[@class="Flight"])[last()]') do
@@ -34,6 +35,7 @@ describe 'flight service' do
       expect(page).to have_css('.Price')
       expect(page).to have_css('.Duration')
       expect(page).to have_css('.Weather')
+      expect(page).to have_css('.Weather_img')
     end
   end
 
