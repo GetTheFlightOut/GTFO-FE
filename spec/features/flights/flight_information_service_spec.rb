@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'flight service' do
   it 'will return trip results for search locations' do
     json = File.read('./spec/fixtures/flight_data_return.json')
-    query = '?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=20'
+    query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20'
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
@@ -15,7 +15,7 @@ describe 'flight service' do
     visit '/'
 
     select 'Denver International', from: 'departure_airport'
-    fill_in 'departure_date', with: '2021/01/30'
+    fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
     expect(page).to have_current_path(flights_path, ignore_query: true)
@@ -39,7 +39,7 @@ describe 'flight service' do
 
   it 'will return a trip results for lucky locations' do
     json = File.read('./spec/fixtures/flight_data_single_return.json')
-    query = '?departure_airport=DEN&departure_date=2021/01/30&trip_duration=3&limit=1'
+    query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=1'
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
@@ -49,7 +49,7 @@ describe 'flight service' do
     visit '/'
 
     select "Denver International", from: "departure_airport"
-    fill_in "departure_date", with: "2021/01/30"
+    fill_in "departure_date", with: "2021-01-30"
     fill_in "trip_duration", with: 3
     click_button("Lucky Location")
 
@@ -60,7 +60,7 @@ describe 'flight service' do
 
   it 'returns error when too far out date given' do
     json = File.read('./spec/fixtures/flight_data_bad_date.json')
-    query = '?departure_airport=DEN&departure_date=01/30/2028&limit=20&trip_duration=3'
+    query = '?departure_airport=DEN&departure_date=30/01/2028&limit=20&trip_duration=3'
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
@@ -70,7 +70,7 @@ describe 'flight service' do
 
     visit '/'
 
-    fill_in 'departure_date', with: '01/30/2028'
+    fill_in 'departure_date', with: '2028-01-30'
     fill_in 'trip_duration', with: 3
 
     click_button('Search Locations')
@@ -86,7 +86,7 @@ describe 'flight service' do
 
   it 'returns error when no flights returned' do
     json = File.read('./spec/fixtures/flight_data_no_flights.json')
-    query = '?departure_airport=DEN&departure_date=01/30/2021&limit=20&trip_duration=3'
+    query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3'
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
         .to_return(status: 200, body: json, headers: {})
@@ -96,7 +96,7 @@ describe 'flight service' do
 
     visit '/'
 
-    fill_in 'departure_date', with: '01/30/2021'
+    fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
 
     click_button('Search Locations')

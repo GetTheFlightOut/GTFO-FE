@@ -20,7 +20,7 @@ class Trip
              :description
 
   def initialize(info)
-    @flight_id = info[:attributes][:id].to_i
+    @flight_id = info[:attributes][:flight_id].to_i
     @departure_datetime = info[:attributes][:departure_datetime]
     @arrival_datetime = info[:attributes][:arrival_datetime]
     @arrival_date = date_convert(@arrival_datetime)
