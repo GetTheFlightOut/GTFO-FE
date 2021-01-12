@@ -12,7 +12,7 @@ RSpec.describe 'Lucky Request' do
           }).
         to_return(status: 200, body: "", headers: {})
       json_response = File.read('spec/fixtures/current_lucky_call.json')
-      binding.pry
+      # binding.pry
       visit '/'
       # when I visit the welcome page,
       # select 'Departure Airport:', :with => "Denver International"
