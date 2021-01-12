@@ -15,6 +15,7 @@ class FlightsController < ApplicationController
       redirect_to flight_show_path(@trip.flight_id)
     end
   end
+  test
 
   private
   def flight_params
