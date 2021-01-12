@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def show
-    @trip = Rails.cache.read(params[:id]) or not_found
+    @trip = Rails.cache.read(params[:id].to_i) or not_found
   end
 
   def index

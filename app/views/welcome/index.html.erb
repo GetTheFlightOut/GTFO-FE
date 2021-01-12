@@ -9,7 +9,7 @@
   give you some great deals to choose from, complete with weather information.
 </p>
 
-<%= form_with url: '/flights', method: :get do |f| %>
+<%= form_with url: '/flights', method: :get, local: true do |f| %>
 
   <%= f.label :departure_airport, "Departure Airport: " %>
   <%= f.select :departure_airport, [["Denver International", "DEN"],
