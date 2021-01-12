@@ -1,6 +1,7 @@
 <h1> Available Flights </h1>
 <table>
   <tr>
+    <th>Today's Weather</th>
     <th>Destination</th>
     <th>Price</th>
     <th>Trip Duration</th>
@@ -8,6 +9,7 @@
   </tr>
   <% @trips.each do |trip| %>
   <tr class="Flight" id="flight-<%=trip.flight_id%>">
+    <td><%= image_tag "#{select_weather_image(trip.description)}", style:"width:150px;", class:"Weather_img"%></td>
     <td class="DestinationCity"><%= link_to trip.destination_city, flight_show_path(trip.flight_id) %></td>
     <td class="Price"><%= trip.price %></td>
     <td class="Duration"><%= trip.trip_duration %></td>
