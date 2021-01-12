@@ -13,7 +13,13 @@ describe 'welcome page' do
 
       expect(page).to have_button('Lucky Location')
 
-      expect(page).to have_link('Log In with Google')
+      within('.navbar-header') do
+        expect(page).to have_link('Log In with Google')
+      end
+
+      within('.login-link') do
+        expect(page).to have_link('Log In with Google')
+      end
     end
   end
 
@@ -30,7 +36,9 @@ describe 'welcome page' do
     visit root_path
     expect(page).to_not have_button('Search Locations')
     expect(page).to have_link('Log In with Google')
-    click_link 'Log In with Google'
+    within('.login-link') do
+      click_link 'Log In with Google'
+    end
     expect(page).to have_button('Search Locations')
   end
 
@@ -58,5 +66,5 @@ describe 'welcome page' do
                                                                        })
   end
 
-  
+
 end
