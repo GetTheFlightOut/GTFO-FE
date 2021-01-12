@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/google_oauth2', as: :google_login
+  get '/logout', to: 'sessions#destroy', as: :google_logout
 
   get '/', to: 'welcome#index', as: :root
 
