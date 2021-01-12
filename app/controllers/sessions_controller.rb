@@ -3,9 +3,18 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    @user = User.find_or_create_by(user_params) 
+    @user = User.find_or_create_by(user_params)
     session[:uid] = @user.uid
     session[:token] = request.env['omniauth.auth'][:credentials][:token]
+    redirect_to '/'
+  end
+
+  def destroy
+    session.delete(:uid)
+    session.delete(:token)
+    # session[:uid] = nil
+    # session[:token] = nil
+    # auth2.sign_out
     redirect_to '/'
   end
 
