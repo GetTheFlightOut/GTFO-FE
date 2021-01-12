@@ -15,7 +15,9 @@
 
 @font-face {
   font-family: 'OstrichCustom';
-  src: url("OstrichSansInline-Regular.otf")
+  src: url("OstrichSansInline-Regular.otf");
+  font-family: 'SciFlyCustom';
+  src: url("SciFly-San.ttf");
 }
 
 $mylogo-blue: #81dee4;
@@ -25,11 +27,13 @@ $mylogo-yellow: #f9df6f;
 $mylogo-dark-grey: #8f8f8f;
 $mybackground-page-grey: #7d7d76;
 $mybox-cream: #ccc2ab;
+$mystandard-font-family: 'SciFlyCustom'
 
 
 
 h1 {
   font-family: 'OstrichCustom';
+
 }
 
 html {
