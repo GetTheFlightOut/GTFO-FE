@@ -51,6 +51,7 @@ describe 'welcome page' do
 
     within('.navbar-header') do
       expect(page).to have_link('Log In with Google')
+      expect(page).to have_link('Home')
     end
 
     within('.login-link') do
