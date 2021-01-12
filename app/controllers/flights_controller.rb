@@ -1,6 +1,9 @@
 class FlightsController < ApplicationController
   def show
-    @trip = Rails.cache.read(params[:id]) or not_found
+    # require 'pry'; binding.pry
+    @trip = Rails.cache.read(params[:id].to_i) or not_found
+    # render :show
+    # redirect_to flight_show_path(@trip.flight_id)
   end
 
   def index
@@ -23,6 +26,8 @@ class FlightsController < ApplicationController
       end
       Rails.cache.write(@trip.flight_id, @trip)
       redirect_to flight_show_path(@trip.flight_id)
+      # render :show
+      # require 'pry'; binding.pry
     end
   end
 
