@@ -20,6 +20,8 @@ describe 'welcome page' do
       within('.login-link') do
         expect(page).to have_link('Log In with Google')
       end
+
+      expect(page).to_not have_link('Logout')
     end
   end
 
@@ -40,6 +42,20 @@ describe 'welcome page' do
       click_link 'Log In with Google'
     end
     expect(page).to have_button('Search Locations')
+
+    expect(page).to have_link('Logout')
+
+    click_link('Logout')
+
+    expect(current_path).to eq(root_path)
+
+    within('.navbar-header') do
+      expect(page).to have_link('Log In with Google')
+    end
+
+    within('.login-link') do
+      expect(page).to have_link('Log In with Google')
+    end
   end
 
   def stub_omniauth
