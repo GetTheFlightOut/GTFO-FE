@@ -14,6 +14,9 @@
 
 This project part of a Service-Oriented Architecture (SOA) application. The GTFO-BE serves as pass through of API data from our microservice repos (Weather API and Flight API) to the GTFO-FE repo.
 
+SOA System Design:
+![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
+
   ### API Endpoints pulled from backend
 
   Current API data pulled from the backend structure is:
