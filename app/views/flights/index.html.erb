@@ -20,6 +20,10 @@
       <div class="temp-box-temp-range">
         (85°F and up)
       </div>
+      Bring Suntan Lotion (85°F and up)
+      <div class="temp-image">
+        <%= image_tag('lotion', size: "100") %>
+      </div>
     </h2>
       <section class="hot-trips">
         <%= render partial: 'flight_partial', collection: @hot_trips, as: :trip %>
@@ -38,6 +42,10 @@
       </div>
       <div class="temp-box-temp-range">
         (70°F to 84°F)
+      </div>
+      Bust Out the Sandals (70°F to 84°F)
+      <div class="temp-image">
+        <%= image_tag('sandals', size: "100") %>
       </div>
     </h2>
       <section class="warm-trips">
@@ -58,6 +66,10 @@
     <div class="temp-box-temp-range">
       (50°F to 69°F)
     </div>
+    Sweater Weather (50°F to 69°F)
+    <div class="temp-image">
+      <%= image_tag('sweater', size: "100") %>
+    </div>
   </h2>
     <section class="cool-trips">
       <%= render partial: 'flight_partial', collection: @cool_trips, as: :trip %>
@@ -76,6 +88,10 @@
       </div>
       <div class="temp-box-temp-range">
         (below 50°F)
+      </div>
+      Build a Snowman (below 50°F)
+      <div class="temp-image">
+        <%= image_tag('snowman', size: "100") %>
       </div>
     </h2>
       <section class="cold-trips">
