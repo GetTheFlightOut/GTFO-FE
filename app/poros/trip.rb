@@ -17,7 +17,8 @@ class Trip
              :day_feels_like_c,
              :day_feels_like_f,
              :booking_link,
-             :description
+             :description,
+             :weekly_forecast
 
   def initialize(info)
     @flight_id = info[:attributes][:flight_id].to_i
@@ -39,6 +40,7 @@ class Trip
     @day_feels_like_f = info[:attributes][:day_feels_like_f]
     @booking_link = info[:attributes][:booking_link]
     @description = info[:attributes][:description]
+    @weekly_forecast = info[:attributes][:weather]
   end
 
   def date_convert(date_time)
