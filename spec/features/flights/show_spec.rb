@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'when I click on a link to show a specific flight' do
   it 'takes me to a flight show page' do
-    json = File.read('./spec/fixtures/flight_data_return.json')
+    
+    #json = File.read('./spec/fixtures/flight_data_return.json')
+    json = File.read('spec/fixtures/flights.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20"
 
     if ENV['WEBMOCK'] == 'true'
@@ -23,7 +25,7 @@ describe 'when I click on a link to show a specific flight' do
 
     click_link "Houston"
 
-    expect(current_path).to eq(flight_show_path("242"))
+    expect(current_path).to eq(flight_show_path("225"))
     expect(page).to have_css(".TripId")
     expect(page).to have_css(".TripOrigin")
     expect(page).to have_css(".TripDestination")
@@ -52,7 +54,7 @@ describe 'when I click on a link to show a specific flight' do
   end
 
   it "can see and visit accomodation links customized for destination city and travel dates" do
-    json = File.read('./spec/fixtures/flight_data_return.json')
+    json = File.read('spec/fixtures/flights.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20"
 
     if ENV['WEBMOCK'] == 'true'

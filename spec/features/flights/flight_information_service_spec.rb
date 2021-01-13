@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'flight service' do
   it 'will return trip results for search locations' do
-    json = File.read('./spec/fixtures/flight_data_return.json')
+    json = File.read('spec/fixtures/flights.json')
     query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20'
 
     if ENV['WEBMOCK'] == 'true'
@@ -20,7 +20,7 @@ describe 'flight service' do
     click_button('Search Locations')
     expect(page).to have_current_path(flights_path, ignore_query: true)
 
-    expect(page).to have_css('.Flight', count: 5)
+    expect(page).to have_css('.Flight', count: 20)
 
     within(first('.Flight')) do
       expect(page).to have_css('.DestinationCity')
@@ -38,26 +38,29 @@ describe 'flight service' do
   end
 
   it 'will return a trip results for lucky locations' do
-    json = File.read('./spec/fixtures/flight_data_single_return.json')
+    json_data = File.read('spec/fixtures/flights.json')
+    @flights_data = JSON.parse(json_data, symbolize_names: true)
+    flight_json = {data: [@flights_data[:data][0]]}.to_json
+    
     query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=1'
-
+    
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
-        .to_return(status: 200, body: json, headers: {})
+      .to_return(status: 200, body: flight_json, headers: {})
     end
-
+    
     visit '/'
-
-    select "Denver International", from: "departure_airport"
-    fill_in "departure_date", with: "2021-01-30"
-    fill_in "trip_duration", with: 3
-    click_button("Lucky Location")
-
-    expect(current_path).to eq(flight_show_path('242'))
-
-    expect(page).to have_content('Houston')
+    
+    select 'Denver International', from: 'departure_airport'
+    fill_in 'departure_date', with: '2021-01-30'
+    fill_in 'trip_duration', with: 3
+    click_button('Lucky Location')
+    
+    expect(current_path).to eq(flight_show_path('939'))
+    
+    expect(page).to have_content('Las Vegas')
   end
-
+  
   it 'returns error when too far out date given' do
     json = File.read('./spec/fixtures/flight_data_bad_date.json')
     query = '?departure_airport=DEN&departure_date=30/01/2028&limit=20&trip_duration=3'
