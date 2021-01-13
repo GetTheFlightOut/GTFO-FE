@@ -43,7 +43,6 @@ class Trip
     @weekly_forecast = WeatherFacade.get_weather(info[:attributes][:weather])
   end
 
-  private
 
   def date_convert(date_time)
     converted_time = DateTime.strptime(date_time, '%F')
