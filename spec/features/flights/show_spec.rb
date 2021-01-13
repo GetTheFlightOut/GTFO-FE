@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'when I click on a link to show a specific flight' do
   it 'takes me to a flight show page' do
-    
+
     json = File.read('spec/fixtures/flights.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20"
 
@@ -31,8 +31,6 @@ describe 'when I click on a link to show a specific flight' do
     expect(page).to have_css(".TripArrTime")
     expect(page).to have_css(".TripRDepTime")
     expect(page).to have_css(".TripRArrTime")
-    expect(page).to have_css(".TripFeels")
-    expect(page).to have_css(".TripWeatherDesc")
     expect(page).to have_css(".TripBooking")
     expect(".Price").to_not be_empty
     expect(".TripOrigin").to_not be_empty
@@ -41,11 +39,9 @@ describe 'when I click on a link to show a specific flight' do
     expect(".TripArrTime").to_not be_empty
     expect(".TripRDepTime").to_not be_empty
     expect(".TripRArrTime").to_not be_empty
-    expect(".TripFeels").to_not be_empty
-    expect(".TripWeatherDesc").to_not be_empty
     expect(".TripBooking").to_not be_empty
 
-    expect(page).to have_link("Click Here To Book")
+    expect(page).to have_button("Book Your Flight")
 
     expect(page).to have_link("Home")
   end
