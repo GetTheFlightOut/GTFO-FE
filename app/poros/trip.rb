@@ -40,8 +40,10 @@ class Trip
     @day_feels_like_f = info[:attributes][:day_feels_like_f]
     @booking_link = info[:attributes][:booking_link]
     @description = info[:attributes][:description]
-    @weekly_forecast = info[:attributes][:weather]
+    @weekly_forecast = WeatherFacade.get_weather(info[:attributes][:weather])
   end
+
+  private
 
   def date_convert(date_time)
     converted_time = DateTime.strptime(date_time, '%F')
