@@ -2,7 +2,7 @@
 
 <script>
 function myMove() {
-  var elem = document.getElementById("planeImage");   
+  var elem = document.getElementById("planeImage");
   var pos = 125; //start position of object upon click (relative to left side of container)
   var id = setInterval(frame, 10); //will call frame method every 10ms
   function frame() {
@@ -20,7 +20,7 @@ function myMove() {
 
 
 function myMove_left() {
-  var elem = document.getElementById("planeImage");   
+  var elem = document.getElementById("planeImage");
   var pos = 520; //start position of object upon click (relative to left side of container)
   var id = setInterval(frame_left, 10); //10 is speed of object, 1 is fast
   function frame_left() {
@@ -37,16 +37,21 @@ function myMove_left() {
 </script>
 
 <!-- <div class="main-container"> -->
-<h1>Welcome to Get The F(light) Out!</h1>
+<div class='welcome-page'>
+  <div class="welcome-title">
+    <h2>Welcome to Get The F(light) Out!</h2>
+    <div class="welcome-tagline">
+      <h3>Gotta go? GTFO.</h3>
+    </div>
+  </div>
 
-
-<h3>Gotta go? GTFO.</h3>
-
-<p>
-  Get The F(light) Out! is a travel application built for people who just want
-  to get out. Enter your origin airport, departure date and duration, and we'll
-  give you some great deals to choose from, complete with weather information.
-</p>
+  <div class="welcome-blurb-container">
+    <div class="welcome-blurb">
+        Get The F(light) Out! is a travel application built for people who just want
+        to get out. Enter your origin airport, departure date and duration, and we'll
+        give you some great deals to choose from, complete with weather information.
+    </div>
+  </div>
 
 <%= form_with url: '/flights', method: :get, local: true do |f| %>
 
@@ -83,4 +88,4 @@ function myMove_left() {
 
 
 <% end %>
-<!-- </div> -->
+</div>

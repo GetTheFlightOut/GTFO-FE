@@ -164,6 +164,17 @@ $mybox-white: #fdfffc;
 
 h1 {
   font-family: 'OstrichCustom';
+  text-align: center;
+}
+
+h2 {
+  font-size: 50;
+  text-align: center;
+}
+
+h3 {
+  font-size: 23;
+  text-align: center;
 }
 
 body {
@@ -183,9 +194,6 @@ body {
   padding: 5%;
 }
 
-h3 {
-  font-size: 23;
-}
 
 #planeBackground {
   width: 800px;
@@ -386,4 +394,36 @@ h3 {
   opacity: 92%;
   font-size: x-large;
   text-align: center;
+}
+
+.welcome-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+  background-color: $mybox-cream;
+  border: 4px solid black;
+  border-radius: 20px;
+  padding-left: 200px;
+  padding-top: 50px;
+  opacity: 80%;
+  text-align: center;
+  height: 150px;
+  margin: 5px;
+}
+
+.welcome-blurb-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  background-color: $mybox-cream;
+  border: 4px solid black;
+  border-radius: 20px;
+}
+
+.welcome-tagline {
+  
 }
