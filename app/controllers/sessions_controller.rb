@@ -6,16 +6,12 @@ class SessionsController < ApplicationController
     @user = User.find_or_create_by(user_params)
     session[:uid] = @user.uid
     session[:token] = request.env['omniauth.auth'][:credentials][:token]
-    redirect_to '/'
+    redirect_to '/', notice: "Welcome, #{@user.first_name}!"
   end
 
   def destroy
-    session.delete(:uid)
-    session.delete(:token)
-    # session[:uid] = nil
-    # session[:token] = nil
-    # auth2.sign_out
-    redirect_to '/'
+    session.clear
+    redirect_to '/', notice: 'You are now logged out.'
   end
 
   protected
