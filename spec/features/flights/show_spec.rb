@@ -43,7 +43,9 @@ describe 'when I click on a link to show a specific flight' do
 
     expect(page).to have_button("Book Your Flight")
 
-    expect(page).to have_link("Home")
+    within '.home-link' do
+      expect(page).to have_link
+    end
   end
 
   it "recieves an error if I navigate to an unknown flight id" do

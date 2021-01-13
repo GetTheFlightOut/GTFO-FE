@@ -37,10 +37,6 @@ $mybox-white: #fdfffc;
   opacity: 92%;
 }
 
-// p {
-//   font-family: $mystandard-font-family;
-// }
-
 .explore-accomidations{
   display: flex;
 	flex-direction: row;
@@ -220,6 +216,24 @@ h3 {
   font-size: 23;
 }
 
+#planeBackground {
+  width: 800px;
+  position: relative;
+  margin: auto;
+}
+#planeImage {
+  position: absolute;
+  left: 125px;
+  bottom: 17px;
+}
+.rotated {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .temperature-box {
   background: $mybox-cream;
   margin: 20px;
@@ -372,6 +386,7 @@ h3 {
   border-radius: 10px;
 }
 
+
 .myButton {
 	box-shadow: 3px 4px 0px 0px #899599;
 	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
@@ -395,4 +410,34 @@ h3 {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+.navbar-header {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+  align-content: stretch;
+}
+
+.home-link {
+  align-content: flex-start;
+}
+
+.oauth-link {
+  align-content: flex-end;
+}
+
+.flash-messages {
+  background: $mybox-cream;
+  margin: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 2px solid $mylogo-blackish;
+  border-radius: 10px;
+  opacity: 92%;
+  font-size: x-large;
+  text-align: center;
 }
