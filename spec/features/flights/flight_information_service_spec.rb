@@ -113,7 +113,8 @@ describe 'flight service' do
     within '.error' do
       expect(page).to have_content('No flights match criteria')
     end
-  end 
+  end
+  
   it 'will render trips grouped by weather' do
     json = File.read('spec/fixtures/flights.json')
     #json = File.read('./spec/fixtures/flight_data_return.json')
