@@ -40,6 +40,7 @@ class Trip
     @booking_link = info[:attributes][:booking_link]
     @description = info[:attributes][:description]
   end
+  
   class << self 
     def group_by_weather(trips)
       hot_trips, warm_trips, cool_trips, cold_trips = [], [], [], []
