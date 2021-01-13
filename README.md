@@ -24,38 +24,58 @@ SOA System Design:
 
   ```
 {
-  "data": [
-    {
-      "id": "242",
-      "type": "trip",
-      "attributes": {
-        "origin_city": "Denver",
-        "destination_city": "Houston",
-        "origin_iata": "DEN",
-        "destination_iata": "IAH",
-        "latitude": 29.9844444,
-        "longitude": -95.341389,
-        "price": 49,
-        "departure_datetime": "2021-01-30T10:07:00.000+00:00",
-        "arrival_datetime": "2021-01-30T13:32:00.000+00:00",
-        "r_departure_datetime": "2021-02-04T14:41:00.000+00:00",
-        "r_arrival_datetime": "2021-02-04T16:19:00.000+00:00",
-        "booking_link": "https://www.kiwi.com/deep?from=DEN&to=IAH&flightsId=0713230e48e1000055702f9c_0%7C230e071348e6000063003075_0&price=40&passengers=1&affilid=picky&lang=en&currency=USD&booking_token=BH6d3ZbUWgOg05ck0nutzMR4nWvyYNTeEM_aYAd77NEcM60o7L5uTwn1n3qwVJJSXxQHxqIz78x2u1OxJ0GUu4sfBcHo8HjNSsF9H4Vai0ikkuKhcANGpQhfH-JUuXVibvGRT3DpV1MlmLQ7KSomq_gzNK3squKcjEoMh4xoG8zcpYlPFgVXRHEpBB1U-elSTs0tq9IPMmqPLTPuYP-PZfQxUcwyO3SSWEr1P5N1P24UpGqcyTLSc_RfzwnIj0xe4JAYifMo9eqtftdHuMQleLmgL6JNAYNcRJGeEitGpj8ScrCV-dHmybWwNdJcZOL_HtS8sY8aKH9SC9Rm0spEZ63VLPX_dGZ40s6BPR-Xc294MijvJi5f9l8IspbxGQqx6hpcYXcXrJeP1Hkva3Ckj6cXdNsUE0lbG-cDFbsMT_us9GBRpeuBx3MFYmZiGaD8BDj7QvuInX9KLexxdjgul-DTbx3AruY0U1cx3_X-CiQuBDUHAJXcJyY7d9PuRnoKCH15-YuwJaMGx7ykEKHy84iieVT_S9Uv-4R8ElVEUAXfnrFch1CANNx3D02B0oQRp-N3g-09jEQGmLvKd-d1Zcia3M3mpVz1VDdyfyy7_X8AkSx5x02LK0MiESKqV2_EFWGobFuw0GrYScsvJ_XuLgrmeWVhQszHfDKuYNPXo71U=",
-        "trip_duration": 5,
-        "flight_id": 242,
-        "min_f": 30.400000000000034,
-        "max_f": 34.99000000000001,
-        "min_c": -1.599999999999966,
-        "max_c": 2.990000000000009,
-        "day_feels_like_c": -7.0499999999999545,
-        "day_feels_like_f": 94.950000000000045,
-        "description": "clear sky",
-        "date": "2021-01-09T02:00:00+00:00"
-      }
-    }
-   ]
-  }
+    "data": [
+        {
+            "id": "0",
+            "type": "trip",
+            "attributes": {
+                "origin_city": "Denver",
+                "destination_city": "Las Vegas",
+                "origin_iata": "DEN",
+                "destination_iata": "LAS",
+                "latitude": 36.08,
+                "longitude": -115.15222,
+                "price": 47,
+                "departure_datetime": "2021-01-30T22:55:00.000+00:00",
+                "arrival_datetime": "2021-01-30T23:58:00.000+00:00",
+                "r_departure_datetime": "2021-02-04T06:30:00.000+00:00",
+                "r_arrival_datetime": "2021-02-04T09:27:00.000+00:00",
+                "booking_link": "https://www.kiwi.com/deep?from=DEN&to=LAS&flightsId=0713244648e100007b61b321_0%7C2446071348e60000bac08674_0&price=39&passengers=1&affilid=picky&lang=en&currency=USD&booking_token=BbkOXQKh-FnCWsmM58Mqtup98vx0wZPY5t5XrfnC5lbzioic-vVkE9feAF0vfzRF1HwNzrIWC7qG6KlS9Gupb05SlCWsm_nIxE9SYdS1god-08hkM-ISgFgM5X2nZC4NOszegqwPCwVVg8_apm0qlOwB17b8VCvM1BMGAEAZxsyoRNSCPLHpABvs2qeKQbbEXuYGFu-00ifs2vadBWVoyRZlBTIHhku2PJTtA7pIT5AjKO17NK6m9em3CrXSdV7oozuzVtu7MWtb8oyZdRmI-Xs5DI1YsV6Su6VKPWF-aZx6AS2P_60sNVDUDn3ZuskOmBZ1t1bqVXQYzSaDixyfFm3Ydq8JYRKduLp6Oxy8PUcovkqH4xedo-tkTyknLqbbstEJDBMGZL5vJf2m9kM2QET3Ca3xVqWY-M1mU8VNIMhmMFpZOyo0hSGIeVHBElUVP64FCPc1UdXEe36r0r-wgZeHMpTqXATnEtr3lwJzgbxbF4elDQ6IoUuHjrOyQUofqmCbwZ1hwWHgmy7KENlwhcsm3HhxpOnxWGS7JaIeU2k6YiQxB6Vh-DNalZV1zI8Yhj9OgM15qX-gclx8vBQKi12JExb-UV0tl7mMSaHqtoaqOpr3RBCkTOtWBz6r7CI-loOeBKV4lJYAvrdjBKvRNqAI_r-HrpIkujW4H76mjz1IWHoBH9zejN-KpAoCiJBdEr3PhM-oTfOZroJbMzTQ74g==",
+                "trip_duration": 5,
+                "flight_id": 775,
+                "min_f": 35.57000000000005,
+                "max_f": 49.110000000000014,
+                "min_c": 3.57000000000005,
+                "max_c": 17.110000000000014,
+                "day_feels_like_f": 44.110000000000014,
+                "day_feels_like_c": 12.110000000000014,
+                "description": "clear sky",
+                "weather_date": "2021-01-13T19:00:00+00:00",
+                "sky_coverage": 10,
+                "weather": [
+                    {
+                        "type": "weather",
+                        "id": null,
+                        "attributes": {
+                            "min_f": 35.57000000000005,
+                            "max_f": 49.110000000000014,
+                            "min_c": 3.57000000000005,
+                            "max_c": 17.110000000000014,
+                            "day_feels_like_c": 12.110000000000014,
+                            "day_feels_like_f": 44.110000000000014,
+                            "description": "clear sky",
+                            "date": "2021-01-13T19:00:00+00:00",
+                            "sky_coverage": 10
+                        }
+                    },
+                    ...(there will be 8 days worth of weather forecast here)
+                ]
+            }
+        }
+    ]
+}
 ```
+Results above are from the following call: http://gtfo-be.herokuapp.com/api/v1/search?departure_airport=DEN&departure_date=30/01/2021&trip_duration=5&limit=20
 
 ## How to Install GTFO-FE
 
