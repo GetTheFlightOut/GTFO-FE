@@ -338,3 +338,34 @@ h3 {
   text-align: center;
   border-radius: 10px;
 }
+
+.navbar-header {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+  align-content: stretch;
+}
+
+.home-link {
+  align-content: flex-start;
+}
+
+.oauth-link {
+  align-content: flex-end;
+}
+
+.flash-messages {
+  background: $mybox-cream;
+  margin: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 2px solid $mylogo-blackish;
+  border-radius: 10px;
+  opacity: 92%;
+  font-size: x-large;
+  text-align: center;
+}
