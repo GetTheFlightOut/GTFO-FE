@@ -21,6 +21,9 @@
       <div class="trip-table-info">
         High: <%= trip.max_f.round(1) %> <br>
         Low: <%= trip.min_f.round(1) %> <br>
+        <div class="weather-image-box">
+          <%= image_tag trip.weekly_forecast[0].image_path, style:"width:150px;", class:"Weather_img" %> <br>
+        </div>
         Feels Like: <%= trip.day_feels_like_f.round(1) %> <br>
         Description: <%= trip.description.capitalize %> <br>
       </div>
