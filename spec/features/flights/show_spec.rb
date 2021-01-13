@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'when I click on a link to show a specific flight' do
   it 'takes me to a flight show page' do
     
-    #json = File.read('./spec/fixtures/flight_data_return.json')
     json = File.read('spec/fixtures/flights.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20"
 
