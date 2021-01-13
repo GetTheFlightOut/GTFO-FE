@@ -1,17 +1,29 @@
-<table>
+<table class='trip-info-table'>
   <tr>
-    <th>Destination</th>
-    <th>Price</th>
-    <th>Trip Duration</th>
-    <th>Weather</th>
+    <th class='trip-column-name'>Destination</th>
+    <th class='trip-column-name'>Total Price</th>
+    <th class='trip-column-name'>Weather</th>
   </tr>
   <tr class="Flight" id="flight-<%=trip.flight_id%>">
-    <td class="DestinationCity"><%= link_to trip.destination_city, flight_show_path(trip.flight_id) %></td>
-    <td class="Price"><%= trip.price %></td>
-    <td class="Duration"><%= trip.trip_duration %></td>
-    <td class="Weather">High: <%= trip.max_f.round(1) %>, <br>
-    <td>Low: <%= trip.min_f.round(1) %>, <br>
-      Feels Like: <%= trip.day_feels_like_f.round(1) %>, <br>
-      Weather Description: <%= trip.description %> <br>
+    <div class="trip-table-separator">
+      <td class="DestinationCity">
+        <div class="trip-table-info">
+            <%= link_to trip.destination_city, flight_show_path(trip.flight_id) %>
+        </div>
+      </td>
+    </div>
+    <td class="Price">
+      <div class="trip-table-info">
+        $<%= trip.price %>
+      </div>
+    </td>
+    <td class="weather-text">
+      <div class="trip-table-info">
+        High: <%= trip.max_f.round(1) %> <br>
+        Low: <%= trip.min_f.round(1) %> <br>
+        Feels Like: <%= trip.day_feels_like_f.round(1) %> <br>
+        Description: <%= trip.description.capitalize %> <br>
+      </div>
+    </td>
   </tr>
 </table>

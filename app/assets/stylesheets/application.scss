@@ -25,9 +25,11 @@ $mylogo-green: #93d669;
 $mylogo-red: #ec635d;
 $mylogo-yellow: #f9df6f;
 $mylogo-dark-grey: #8f8f8f;
+$mylogo-blackish: #424040;
 $mybackground-page-grey: #7d7d76;
 $mybox-cream: #ccc2ab;
 $mystandard-font-family: 'SciFlyCustom';
+$mybox-white: #fdfffc;
 
 
 
@@ -52,7 +54,146 @@ body {
   padding: 10%;
 }
 
-
 h3 {
   font-size: 23;
+}
+
+.temperature-box {
+  background: $mybox-cream;
+  margin: 20px;
+  padding: 2%;
+  border-radius: 30px;
+  opacity: 92%;
+  border: 10px solid $mylogo-blackish;
+}
+
+.trip-info-table {
+  font-size: x-large;
+  text-align: center;
+  background: $mylogo-green;
+  border: 10px solid $mylogo-blackish;
+  border-radius: 25px;
+  padding: 50px;
+  margin: 25px;
+  width: 700px;
+}
+
+.DestinationCity {
+  font-size: xx-large;
+  font-style: bold;
+}
+
+.flight-index-header {
+  background: $mylogo-yellow;
+  margin: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 10px solid $mylogo-blackish;
+  border-radius: 10px;
+  opacity: 92%;
+}
+
+.flight-index-header-box {
+  background: $mylogo-blue;
+  margin: 10px;
+  padding: 10px;
+  border: 10px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.flight-index-header-big-box {
+  background: $mylogo-red;
+  margin: 10px;
+  padding: 10px;
+  border: 10px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.flight-index-header-biggest-box {
+  background: $mylogo-green;
+  margin: 10px;
+  padding: 10px;
+  border: 10px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.temp-box-header {
+  background: $mybox-white;
+  margin: 20px;
+  padding: 2%;
+  border: 5px solid $mylogo-blackish;
+  border-radius: 5%;
+  opacity: 92%;
+  text-align: center;
+}
+
+.weather-text {
+  font-size: medium;
+}
+
+.temp-image {
+  background: $mylogo-red;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  border-radius: 5%;
+  opacity: 92%;
+  text-align: center;
+}
+
+.trip-column-name {
+  background: $mylogo-blue;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.trip-table-info {
+  background: $mylogo-yellow;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+}
+
+.trip-table-separator {
+  background: $mylogo-red;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.such-a-big-box {
+  background: $mylogo-green;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.temp-box {
+  background: $mylogo-blue;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
 }
