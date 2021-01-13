@@ -55,7 +55,7 @@ describe 'flight service' do
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
     
-    expect(current_path).to eq(flight_show_path('939'))
+    expect(current_path).to eq(flight_show_path('773'))
     
     expect(page).to have_content('Las Vegas')
   end
@@ -112,7 +112,8 @@ describe 'flight service' do
     end
   end 
   it 'will render trips grouped by weather' do
-    json = File.read('./spec/fixtures/flight_data_return.json')
+    json = File.read('spec/fixtures/flights.json')
+    #json = File.read('./spec/fixtures/flight_data_return.json')
     query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3'
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
