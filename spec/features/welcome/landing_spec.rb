@@ -20,6 +20,8 @@ describe 'welcome page' do
       within('.login-link') do
         expect(page).to have_link('Log In with Google')
       end
+
+      expect(page).to_not have_link('Logout')
     end
   end
 
@@ -57,7 +59,7 @@ describe 'welcome page' do
       expect(page).to have_content('You are now logged out.')
     end
   end
-  
+
   def stub_omniauth
     # first, set OmniAuth to run in test mode
     OmniAuth.config.test_mode = true

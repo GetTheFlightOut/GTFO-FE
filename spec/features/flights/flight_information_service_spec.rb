@@ -24,15 +24,13 @@ describe 'flight service' do
     within(first('.Flight')) do
       expect(page).to have_css('.DestinationCity')
       expect(page).to have_css('.Price')
-      expect(page).to have_css('.Duration')
-      expect(page).to have_css('.Weather')
+      expect(page).to have_css('.weather-text')
     end
 
     within(:xpath, '(//tr[@class="Flight"])[last()]') do
       expect(page).to have_css('.DestinationCity')
       expect(page).to have_css('.Price')
-      expect(page).to have_css('.Duration')
-      expect(page).to have_css('.Weather')
+      expect(page).to have_css('.weather-text')
     end
   end
 
@@ -108,7 +106,7 @@ describe 'flight service' do
       expect(page).to have_content('No flights match criteria')
     end
   end
-  
+
   it 'will render trips grouped by weather' do
     json = File.read('./spec/fixtures/flight_data_return.json')
     query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3'
