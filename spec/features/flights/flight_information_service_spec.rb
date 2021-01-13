@@ -17,7 +17,7 @@ describe 'flight service' do
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
-    save_and_open_page
+
     expect(page).to have_current_path(flights_path, ignore_query: true)
 
     expect(page).to have_css('.Flight', count: 20)

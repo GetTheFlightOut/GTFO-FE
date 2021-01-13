@@ -30,6 +30,6 @@ describe 'Trip' do
     expect(@weather_day.description).to eq(@weekly_weather_data[:attributes][:description])
     expect(@weather_day.date).to eq('2021-01-12')
     expect(@weather_day.sky_coverage).to eq(@weekly_weather_data[:attributes][:sky_coverage])
-    expect(@weather_day.image_path).to eq('weather_images/sunny.jpg')
+    expect(@weather_day.image_path).to eq('sun.jpg')
   end
 end

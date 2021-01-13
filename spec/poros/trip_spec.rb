@@ -44,7 +44,6 @@ describe "Trip" do
         trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
           Trip.new(trip_info)
         end
-        require 'pry'; binding.pry
         expected = [[trips[0]], [trips[1]], [trips[2]], [trips[3], trips[4]]]
         expect(Trip.group_by_weather(trips)).to eq(expected)
       end
