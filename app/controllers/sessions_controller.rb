@@ -3,10 +3,15 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    @user = User.find_or_create_by(user_params) 
+    @user = User.find_or_create_by(user_params)
     session[:uid] = @user.uid
     session[:token] = request.env['omniauth.auth'][:credentials][:token]
-    redirect_to '/'
+    redirect_to '/', notice: "Welcome, #{@user.first_name}!"
+  end
+
+  def destroy
+    session.clear
+    redirect_to '/', notice: 'You are now logged out.'
   end
 
   protected

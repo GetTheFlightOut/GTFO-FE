@@ -35,7 +35,7 @@ describe 'when I click on a link to show a specific flight' do
     expect(page).to have_css(".TripFeels")
     expect(page).to have_css(".TripWeatherDesc")
     expect(page).to have_css(".TripBooking")
-    expect(".TripId").to_not be_empty
+    expect(".Price").to_not be_empty
     expect(".TripOrigin").to_not be_empty
     expect(".TripDestination").to_not be_empty
     expect(".TripDepTime").to_not be_empty
@@ -45,6 +45,8 @@ describe 'when I click on a link to show a specific flight' do
     expect(".TripFeels").to_not be_empty
     expect(".TripWeatherDesc").to_not be_empty
     expect(".TripBooking").to_not be_empty
+
+    expect(page).to have_link("Click Here To Book")
   end
 
   it "recieves an error if I navigate to an unknown flight id" do

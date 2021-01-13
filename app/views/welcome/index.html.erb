@@ -1,3 +1,4 @@
+<!-- <div class="main-container"> -->
 <h1>Welcome to Get The F(light) Out!</h1>
 
 
@@ -29,7 +30,8 @@
   <% if current_user %>
     <%= f.submit "Search Locations" %>
   <% else %>
-    <p><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
+    <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
   <% end %>
 
 <% end %>
+<!-- </div> -->

@@ -3,6 +3,17 @@ rbenv:
 - 2.5.3
 addons:
   postgresql: 9.6
+cache:
+  bundler: true
+  yarn: true
+  directories:
+    - node modules
+install:
+  - bundle install
+  - nvm install node
+  - node -v
+  - npm i -g yarn
+  - yarn install
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec

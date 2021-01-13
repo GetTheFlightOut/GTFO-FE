@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+<div class="background">
   <head>
-    <title>GTFOFe</title>
+
+    <title>GTFO</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,15 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <% unless current_user %>
+          <%= link_to "Log In with Google", google_login_path, class: "navbar-brand" %>
+        <% else %>
+          <%= link_to "Logout", google_logout_path, class: "navbar-brand" %>
+        <% end %>
+      </div>
+    </nav>
   <header>
    <% flash.each do |type, message| %>
       <h4 class='<%= type %>'>
@@ -17,6 +28,8 @@
       </h4>
    <% end %>
   </header>
+  <div class="main-container">
     <%= yield %>
   </body>
+</div>
 </html>

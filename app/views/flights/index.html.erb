@@ -1,20 +1,31 @@
 <h1> Available Flights </h1>
-<table>
-  <tr>
-    <th>Destination</th>
-    <th>Price</th>
-    <th>Trip Duration</th>
-    <th>Weather</th>
-  </tr>
-  <% @trips.each do |trip| %>
-  <tr class="Flight" id="flight-<%=trip.flight_id%>">
-    <td class="DestinationCity"><%= link_to trip.destination_city, flight_show_path(trip.flight_id) %></td>
-    <td class="Price"><%= trip.price %></td>
-    <td class="Duration"><%= trip.trip_duration %></td>
-    <td class="Weather">High: <%= trip.max_f.round(1) %>, <br>
-    <td>Low: <%= trip.min_f.round(1) %>, <br>
-      Feels Like: <%= trip.day_feels_like_f.round(1) %>, <br>
-      Weather Description: <%= trip.description %>, <br>
-  </tr>
-  <% end %>
-</table>
+
+<% if !@hot_trips.empty? %>
+<h2>Bring Suntan Lotion (85° and up)</h2>
+  <section class="hot-trips">
+    <%= render partial: 'flight_partial', collection: @hot_trips, as: :trip %>
+  </section>
+<% end %>
+
+<% if !@warm_trips.empty? %>
+<h2>Bust Out the Sandles (70° to 84°)</h2>
+  <section class="warm-trips">
+    <%= render partial: 'flight_partial', collection: @warm_trips, as: :trip %>
+  </section>
+<% end %>
+
+<% if !@cool_trips.empty? %>
+<h2>Sweater Weather (50° to 69°)</h2>
+  <section class="cool-trips">
+    <%= render partial: 'flight_partial', collection: @cool_trips, as: :trip %>
+  </section>
+<% end %>
+
+<% if !@cold_trips.empty? %>
+<h2>Build a Snowman (below 50°)</h2>
+  <section class="cold-trips">
+    <%= render partial: 'flight_partial', collection: @cold_trips, as: :trip %>
+  </section>
+<% end %>
+
+<p>*Degrees are in fahrenheit</p>

@@ -42,6 +42,19 @@ class Trip
     @description = info[:attributes][:description]
     @weekly_forecast = WeatherFacade.get_weather(info[:attributes][:weather])
   end
+  
+  class << self 
+    def group_by_weather(trips)
+      hot_trips, warm_trips, cool_trips, cold_trips = [], [], [], []
+      trips.each do |trip|
+        hot_trips << trip if trip.day_feels_like_f >= 85
+        warm_trips << trip if trip.day_feels_like_f >= 70 && trip.day_feels_like_f < 85 
+        cool_trips << trip if trip.day_feels_like_f >= 50 && trip.day_feels_like_f < 70  
+        cold_trips << trip if trip.day_feels_like_f <= 50 
+      end
+      return hot_trips, warm_trips, cool_trips, cold_trips
+    end
+  end
 
 
   def date_convert(date_time)
