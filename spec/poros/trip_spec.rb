@@ -45,7 +45,7 @@ describe "Trip" do
           Trip.new(trip_info)
         end
         require 'pry'; binding.pry
-        expected = [q
+        expected = [
                     [], 
                     [], 
                     [trips[2], trips[3], trips[4]], 
