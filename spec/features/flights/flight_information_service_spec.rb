@@ -19,7 +19,7 @@ describe 'flight service' do
     click_button('Search Locations')
     expect(page).to have_current_path(flights_path, ignore_query: true)
 
-    expect(page).to have_css('.Flight', count: 5)
+    expect(page).to have_css('.Flight', count: 20)
 
     within(first('.Flight')) do
       expect(page).to have_css('.DestinationCity')
@@ -107,7 +107,8 @@ describe 'flight service' do
     within '.error' do
       expect(page).to have_content('No flights match criteria')
     end
-  end 
+  end
+  
   it 'will render trips grouped by weather' do
     json = File.read('./spec/fixtures/flight_data_return.json')
     query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3'

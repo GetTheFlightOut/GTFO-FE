@@ -23,7 +23,7 @@ describe 'when I click on a link to show a specific flight' do
 
     click_link "Houston"
 
-    expect(current_path).to eq(flight_show_path("242"))
+    expect(current_path).to eq(flight_show_path("244"))
     expect(page).to have_css(".Price")
     expect(page).to have_css(".TripOrigin")
     expect(page).to have_css(".TripDestination")

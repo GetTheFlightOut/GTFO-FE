@@ -48,7 +48,8 @@ describe "Trip" do
         trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
           Trip.new(trip_info)
         end
-        expected = [[trips[0]], [trips[1]], [trips[2]], [trips[3], trips[4]]]
+
+        expected = [[trips[1]], [trips[15]], [trips[3], trips[8]], [trips[0], trips[2], trips[4], trips[5], trips[6], trips[7], trips[9], trips[10], trips[11], trips[12], trips[13], trips[14], trips[16], trips[17], trips[18], trips[19]]]
         expect(Trip.group_by_weather(trips)).to eq(expected)
       end
     end
