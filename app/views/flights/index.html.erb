@@ -11,9 +11,14 @@
 <% if !@hot_trips.empty? %>
   <div class='temperature-box'>
     <h2 class='temp-box-header'>
-      Bring Suntan Lotion (85°F and up)
+      <div class="temp-box-actual-header">
+        Bring<br>Suntan Lotion
+      </div>
       <div class="temp-image">
         <%= image_tag('lotion', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (85°F and up)
       </div>
     </h2>
       <section class="hot-trips">
@@ -25,9 +30,14 @@
 <% if !@warm_trips.empty? %>
   <div class='temperature-box'>
     <h2 class='temp-box-header'>
-      Bust Out the Sandals (70°F to 84°F)
+      <div class="temp-box-actual-header">
+        Bust Out<br>the Sandals
+      </div>
       <div class="temp-image">
         <%= image_tag('sandals', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (70°F to 84°F)
       </div>
     </h2>
       <section class="warm-trips">
@@ -39,9 +49,14 @@
 <% if !@cool_trips.empty? %>
 <div class='temperature-box'>
   <h2 class='temp-box-header'>
-    Sweater Weather (50°F to 69°F)
+    <div class="temp-box-actual-header">
+      Sweater<br>Weather
+    </div>
     <div class="temp-image">
       <%= image_tag('sweater', size: "100") %>
+    </div>
+    <div class="temp-box-temp-range">
+      (50°F to 69°F)
     </div>
   </h2>
     <section class="cool-trips">
@@ -53,9 +68,14 @@
 <% if !@cold_trips.empty? %>
   <div class='temperature-box'>
     <h2 class='temp-box-header'>
-      Build a Snowman (below 50°F)
+      <div class="temp-box-actual-header">
+        Build a<br>Snowman
+      </div>
       <div class="temp-image">
         <%= image_tag('snowman', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (below 50°F)
       </div>
     </h2>
       <section class="cold-trips">

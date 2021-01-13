@@ -133,6 +133,10 @@ h3 {
   border-radius: 5%;
   opacity: 92%;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .weather-text {
