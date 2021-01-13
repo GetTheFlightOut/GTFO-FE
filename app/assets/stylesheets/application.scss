@@ -187,6 +187,24 @@ h3 {
   font-size: 23;
 }
 
+#planeBackground {
+  width: 800px;
+  position: relative;
+  margin: auto;
+}
+#planeImage {
+  position: absolute;
+  left: 125px;
+  bottom: 17px;
+}
+.rotated {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .temperature-box {
   background: $mybox-cream;
   margin: 20px;
