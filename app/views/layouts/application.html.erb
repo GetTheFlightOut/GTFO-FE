@@ -14,12 +14,8 @@
   <body>
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-<<<<<<< HEAD
         <%= link_to 'Home', root_path %>
-        <% if !current_user %>
-=======
         <% unless current_user %>
->>>>>>> 83c38cc957ea044ee03c6f96d9f9e809527ff3e2
           <%= link_to "Log In with Google", google_login_path, class: "navbar-brand" %>
         <% else %>
           <%= link_to "Logout", google_logout_path, class: "navbar-brand" %>

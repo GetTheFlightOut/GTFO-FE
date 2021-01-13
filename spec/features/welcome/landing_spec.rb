@@ -58,27 +58,8 @@ describe 'welcome page' do
       end
       expect(page).to have_content('You are now logged out.')
     end
-<<<<<<< HEAD
-    expect(page).to have_button('Search Locations')
-
-    expect(page).to have_link('Logout')
-
-    click_link('Logout')
-
-    expect(current_path).to eq(root_path)
-
-    within('.navbar-header') do
-      expect(page).to have_link('Log In with Google')
-      expect(page).to have_link('Home')
-    end
-
-    within('.login-link') do
-      expect(page).to have_link('Log In with Google')
-    end
-=======
->>>>>>> 83c38cc957ea044ee03c6f96d9f9e809527ff3e2
   end
-  
+
   def stub_omniauth
     # first, set OmniAuth to run in test mode
     OmniAuth.config.test_mode = true
