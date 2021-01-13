@@ -1,22 +1,50 @@
-<h1>Flight Details</h1>
 
-  <p> class=background</p>
-  <p class="Price">Price: $<%= @trip.price %></p>
-  <p class="TripOrigin">Origin City: <%= @trip.origin_city %></p>
-  <p class="TripDestination">Destination: <%= @trip.destination_city %></p>
-  <p class="TripDepTime"><%= @trip.departure_datetime %></p>
-  <p class="TripArrTime"><%= @trip.arrival_datetime %></p>
-  <p class="TripRDepTime"><%= @trip.r_departure_datetime %></p>
-  <p class="TripRArrTime"><%= @trip.r_arrival_datetime %></p>
+<div class='show-page'>
+  <div class='title-show'>
+    <h1 class='show-title'>Pack Your Bags</h1>
+  </div>
+  <div class='flight-details-show'>
+    <div class="trip-dest-show">
+      <div class='origin'>
+        <h4 class="TripOrigin">Origin City: <%= @trip.origin_city %></h4>
+      </div>
+      <div class="image">
+        <%= image_tag("plane", class: 'plane-image') %>
+      </div>
+      <div class="destination">
+        <h4 class="TripDestination">Destination: <%= @trip.destination_city %></h4>
+      </div>
+    </div>
+    <div class="trip-details-show">
+      <div class="trip-price">
+        <h5 class="Price">Price: $<%= @trip.price %></h5>
+      </div>
+      <div class=flights>
+        <div class="trip-times-leave">
+          <p>Departure Trip</p>
+          <p class="TripDepTime">Depart: <%= @trip.departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%> </p>
+          <p class="TripArrTime">Arrive: <%= @trip.arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%></p>
+        </div>
+        <div class="trip-times-return">
+          <p>Return Trip</p>
+          <p class="TripRDepTime">Depart: <%= @trip.r_departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
+          <p class="TripRArrTime">Arrive: <%= @trip.r_arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
+        </div>
+      </div>
+    </div>
+    <p class="TripBooking"><%= link_to "Click Here To Book", @trip.booking_link %></p>
+  </div>
+
+  <div class ='weather'>
   <p class="TripFeels">Temperature Feels Like: <%= @trip.day_feels_like_f.round(1) %> °F</p>
   <p class="TripWeatherDesc">Weather Description: <%= @trip.description %></p>
-  <p class="TripBooking"><%= link_to "Click Here To Book", @trip.booking_link %></p>
-
-
+  </div>
+  <div class='explore-accomidations'>
   <p class="TripAirbnb">
-  <%= link_to "Explore Airbnb accomodations", "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
+  <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
   </p>
 
   <p class="TripHotels">
-  <%= link_to "Explore Hotels.com accomodations", "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}" %>
+  <%= link_to image_tag("hotels.jpeg", class: 'TripHotels'), "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}" %>
   </p>
+</div>
