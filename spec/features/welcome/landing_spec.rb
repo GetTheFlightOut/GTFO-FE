@@ -23,50 +23,41 @@ describe 'welcome page' do
     end
   end
 
-  it 'user logs in using Google OAuth' do
-    # first, set OmniAuth to run in test mode
-    OmniAuth.config.test_mode = true
-    # then, provide a set of fake oauth data that
-    # omniauth will use when a user tries to authenticate:
-    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+  describe 'As an authenticated users' do
+    it 'user logs in using Google OAuth' do
 
-                                                                })
-
-    stub_omniauth
-    visit root_path
-    expect(page).to_not have_button('Search Locations')
-    expect(page).to have_link('Log In with Google')
-    within('.login-link') do
-      click_link 'Log In with Google'
+      stub_omniauth
+      visit root_path
+      expect(page).to_not have_button('Search Locations')
+      expect(page).to have_link('Log In with Google')
+      within('.login-link') do
+        click_link 'Log In with Google'
+      end
+      expect(page).to have_button('Search Locations')
+      expect(page).to have_content('Welcome, William!')
     end
-    expect(page).to have_button('Search Locations')
-    expect(page).to have_content('Welcome, William!')
+
+    it 'user logs out using Google OAuth' do
+
+      stub_omniauth
+
+      visit root_path
+      within('.login-link') do
+        click_link 'Log In with Google'
+      end
+      expect(page).to have_button('Search Locations')
+
+      within('.navbar-header') do
+        click_link 'Logout'
+      end
+      expect(page).not_to have_button('Search Locations')
+      within('.navbar-header') do
+        expect(page).not_to have_link('Logout')
+      end
+      expect(page).to have_content('You are now logged out.')
+    end
   end
-
-  it 'user logs out using Google OAuth' do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
-
-                                                                })
-
-    stub_omniauth
-
-    visit root_path
-    within('.login-link') do
-      click_link 'Log In with Google'
-    end
-    expect(page).to have_button('Search Locations')
-
-    within('.navbar-header') do
-      click_link 'Logout'
-    end
-    expect(page).not_to have_button('Search Locations')
-    within('.navbar-header') do
-      expect(page).not_to have_link('Logout')
-    end
-    expect(page).to have_content('You are now logged out.')
-  end
-
+  
   def stub_omniauth
     # first, set OmniAuth to run in test mode
     OmniAuth.config.test_mode = true
