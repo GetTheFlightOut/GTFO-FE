@@ -38,19 +38,19 @@ class WeatherDay
     cloudy_weather = ['few clouds', 'scattered clouds', 'broken clouds', 'overcast clouds'].include?(weather_desc)
     case true
     when sunny_weather
-      '/images/sun.jpg'
+      'sun.jpg'
     when rainy_weather
-      '/images/rain.jpg'
+      'rain.jpg'
     when cloudy_weather
-      '/images/cloudy.jpg'
+      'cloudy.jpg'
     when snowy_weather
-      '/images/snow.jpg'
+      'snow.jpg'
     when partly_sunny_weather
-      '/images/partly-clouds.jpg'
+      'partly-clouds.jpg'
     when thunder_storms_weather
-      '/images/thunder.jpg'
+      'thunder.jpg'
     else
-      '/images/partly-clouds.jpg'
+      'partly-clouds.jpg'
     end
   end
 
