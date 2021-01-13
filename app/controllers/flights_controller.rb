@@ -1,6 +1,5 @@
 class FlightsController < ApplicationController
   def show
-    # require 'pry'; binding.pry
     @trip = Rails.cache.read(params[:id].to_i) or not_found
   end
 
