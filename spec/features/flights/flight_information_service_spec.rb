@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'flight service' do
   it 'will return trip results for search locations' do
     json = File.read('./spec/fixtures/flight_data_return.json')
-    query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20'
+    query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3'
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
@@ -13,7 +13,6 @@ describe 'flight service' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
 
     visit '/'
-
     select 'Denver International', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3

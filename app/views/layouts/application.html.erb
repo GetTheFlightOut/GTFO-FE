@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<div class="background">
   <head>
+
     <title>GTFO</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,6 +28,8 @@
       </h4>
    <% end %>
   </header>
+  <div class="main-container">
     <%= yield %>
   </body>
+</div>
 </html>
