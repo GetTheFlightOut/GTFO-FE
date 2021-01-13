@@ -14,20 +14,30 @@
   <body>
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-        <%= link_to 'Home', root_path %>
-        <% unless current_user %>
-          <%= link_to "Log In with Google", google_login_path, class: "navbar-brand" %>
-        <% else %>
-          <%= link_to "Logout", google_logout_path, class: "navbar-brand" %>
-        <% end %>
+        <div class="home-link">
+          <%= link_to image_tag("home_logo.png", size:100, class: 'home'), "/" %>
+        </div>
+        <div class="oauth-link">
+          <% unless current_user %>
+            <div class="sign-in-link">
+              <%= link_to image_tag("sign_in.png", size:100, class: 'sign-in'), google_login_path %>
+            </div>
+          <% else %>
+            <div class="sign-out-link">
+              <%= link_to image_tag("sign_out.png", size:100, class: 'sign-out'), google_logout_path %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </nav>
   <header>
-   <% flash.each do |type, message| %>
-      <h4 class='<%= type %>'>
-        <%= message %>
-      </h4>
-   <% end %>
+    <% flash.each do |type, message| %>
+      <div class="flash-messages">
+        <h4 class='<%= type %>'>
+          <%= message %>
+        </h4>
+      </div>
+    <% end %>
   </header>
   <div class="main-container">
     <%= yield %>

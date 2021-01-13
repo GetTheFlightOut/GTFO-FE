@@ -14,7 +14,9 @@ describe 'welcome page' do
       expect(page).to have_button('Lucky Location')
 
       within('.navbar-header') do
-        expect(page).to have_link('Log In with Google')
+        within('.sign-in-link') do
+          expect(page).to have_link
+        end
       end
 
       within('.login-link') do
@@ -44,17 +46,23 @@ describe 'welcome page' do
       stub_omniauth
 
       visit root_path
-      within('.login-link') do
-        click_link 'Log In with Google'
+
+      within('.navbar-header') do
+        within('.sign-in-link') do
+          click_link
+        end
       end
       expect(page).to have_button('Search Locations')
 
       within('.navbar-header') do
-        click_link 'Logout'
+        within '.sign-out-link' do
+          click_link
+        end
       end
+
       expect(page).not_to have_button('Search Locations')
       within('.navbar-header') do
-        expect(page).not_to have_link('Logout')
+        expect(page).not_to have_css('sign-out-link')
       end
       expect(page).to have_content('You are now logged out.')
     end
