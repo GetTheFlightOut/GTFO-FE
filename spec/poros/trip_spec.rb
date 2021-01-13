@@ -45,11 +45,7 @@ describe "Trip" do
           Trip.new(trip_info)
         end
         require 'pry'; binding.pry
-        expected = [
-                    [], 
-                    [], 
-                    [trips[2], trips[3], trips[4]], 
-                    [trips[5], trips[6]]]
+        expected = [[trips[0]], [trips[1]], [trips[2]], [trips[3], trips[4]]]
         expect(Trip.group_by_weather(trips)).to eq(expected)
       end
     end
