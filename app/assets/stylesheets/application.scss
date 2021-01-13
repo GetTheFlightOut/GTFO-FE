@@ -27,10 +27,139 @@ $mylogo-yellow: #f9df6f;
 $mylogo-dark-grey: #8f8f8f;
 $mylogo-blackish: #424040;
 $mybackground-page-grey: #7d7d76;
+$myborder-blackish: #414040;
 $mybox-cream: #ccc2ab;
 $mystandard-font-family: 'SciFlyCustom';
 $mybox-white: #fdfffc;
 
+.show-page{
+  margin-top: 0em;
+  opacity: 92%;
+}
+
+// p {
+//   font-family: $mystandard-font-family;
+// }
+
+.explore-accomidations{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+  align-content: stretch;
+}
+
+.TripAirbnb{
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 50px;
+    max-width: 50%;
+    height: auto;
+    align-content: center;
+    transform: translate(61px, 0%);
+}
+
+.TripHotels{
+    padding: 10px 20px;
+    font-size: 10px;
+    border-radius: 50px;
+    max-width: 43%;
+    height: auto;
+    transform: translate(78px, 0%);
+}
+
+.title-show{
+  background: $mybox-cream;
+  border-style: solid;
+  border-color: $myborder-blackish;
+  border-width: 0.25em;
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 0em;
+  border-radius: 25px;
+  box-shadow: 2px 5px #363631;
+}
+
+.show-title{
+  font-family: 'OstrichCustom';
+}
+
+.flights{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+  align-content: stretch;
+}
+
+.flight-details-show{
+  display:flex;
+  flex-direction: column;
+  background: $mybox-cream;
+  border-style: solid;
+  border-color: $myborder-blackish;
+  border-width: 0.25em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 2px 5px #363631;
+}
+
+.weather{
+  display:flex;
+  flex-direction: column;
+  background: $mybox-cream;
+  border-style: solid;
+  border-color: $myborder-blackish;
+  border-width: 0.25em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 2px 5px #363631;
+  margin-top: 2em;
+}
+
+.origin{
+  padding-top: 35px;
+}
+
+.destination{
+  padding-top: 35px;
+}
+
+.trip-dest-show{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+  align-content: stretch;
+  margin: 42px;
+}
+
+.plane-image{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.trip-dest-show div.TripOrigin{
+  float: left;
+  width: 33.3%;
+}
+.trip-dest-show div.TripDestination{
+  float: left;
+  width: 33.3%;
+}
+.trip-dest-show div.image{
+  float: left;
+  width: 33.3%;
+}
+
+.trip-dest-show:after{
+  content:"";
+  display:table;
+  clear:both
+}
 
 
 h1 {
@@ -51,7 +180,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10%;
+  padding: 5%;
 }
 
 h3 {
