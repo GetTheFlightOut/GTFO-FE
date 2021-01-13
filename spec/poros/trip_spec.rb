@@ -31,7 +31,7 @@ describe "Trip" do
       expect(@test_flight.weekly_forecast.count).to eq(8)
 
 
-      expected = @test_flight.weekly_forecast[0][:attributes][:sky_coverage]
+      expected = @test_flight.weekly_forecast[0].sky_coverage
       actual = @flight_json[:attributes][:weather][0][:attributes][:sky_coverage]
 
       expect(expected).to eq(actual)
