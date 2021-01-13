@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Destination</th>
+    <th>Price</th>
+    <th>Trip Duration</th>
+    <th>Weather</th>
+  </tr>
+  <tr class="Flight" id="flight-<%=trip.flight_id%>">
+    <td class="DestinationCity"><%= link_to trip.destination_city, flight_show_path(trip.flight_id) %></td>
+    <td class="Price"><%= trip.price %></td>
+    <td class="Duration"><%= trip.trip_duration %></td>
+    <td class="Weather">High: <%= trip.max_f.round(1) %>, <br>
+    <td>Low: <%= trip.min_f.round(1) %>, <br>
+      Feels Like: <%= trip.day_feels_like_f.round(1) %>, <br>
+      Weather Description: <%= trip.description %> <br>
+  </tr>
+</table>
