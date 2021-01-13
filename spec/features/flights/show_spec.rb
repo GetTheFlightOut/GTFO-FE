@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'when I click on a link to show a specific flight' do
   it 'takes me to a flight show page' do
-    
+
     json = File.read('spec/fixtures/flights.json')
     query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20"
 
@@ -47,7 +47,9 @@ describe 'when I click on a link to show a specific flight' do
 
     expect(page).to have_link("Click Here To Book")
 
-    expect(page).to have_link("Home")
+    within '.home-link' do
+      expect(page).to have_link
+    end
   end
 
   it "recieves an error if I navigate to an unknown flight id" do
