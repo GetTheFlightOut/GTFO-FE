@@ -1,31 +1,101 @@
-<h1> Available Flights </h1>
+<div class="flight-index-header-biggest-box">
+  <div class="flight-index-header-big-box">
+    <div class="flight-index-header-box">
+      <div class="flight-index-header">
+        <h1> Best Available Trips </h1>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% if !@hot_trips.empty? %>
-<h2>Bring Suntan Lotion (85° and up)</h2>
-  <section class="hot-trips">
-    <%= render partial: 'flight_partial', collection: @hot_trips, as: :trip %>
-  </section>
+  <div class='temperature-box'>
+    <h2 class='temp-box-header'>
+      <div class="temp-box-actual-header">
+        Bring<br>Suntan Lotion
+      </div>
+      <div class="temp-image">
+        <%= image_tag('lotion', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (85°F and up)
+      </div>
+      Bring Suntan Lotion (85°F and up)
+      <div class="temp-image">
+        <%= image_tag('lotion', size: "100") %>
+      </div>
+    </h2>
+      <section class="hot-trips">
+        <%= render partial: 'flight_partial', collection: @hot_trips, as: :trip %>
+      </section>
+  </div>
 <% end %>
 
 <% if !@warm_trips.empty? %>
-<h2>Bust Out the Sandles (70° to 84°)</h2>
-  <section class="warm-trips">
-    <%= render partial: 'flight_partial', collection: @warm_trips, as: :trip %>
-  </section>
+  <div class='temperature-box'>
+    <h2 class='temp-box-header'>
+      <div class="temp-box-actual-header">
+        Bust Out<br>the Sandals
+      </div>
+      <div class="temp-image">
+        <%= image_tag('sandals', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (70°F to 84°F)
+      </div>
+      Bust Out the Sandals (70°F to 84°F)
+      <div class="temp-image">
+        <%= image_tag('sandals', size: "100") %>
+      </div>
+    </h2>
+      <section class="warm-trips">
+        <%= render partial: 'flight_partial', collection: @warm_trips, as: :trip %>
+      </section>
+  </div>
 <% end %>
 
 <% if !@cool_trips.empty? %>
-<h2>Sweater Weather (50° to 69°)</h2>
-  <section class="cool-trips">
-    <%= render partial: 'flight_partial', collection: @cool_trips, as: :trip %>
-  </section>
+<div class='temperature-box'>
+  <h2 class='temp-box-header'>
+    <div class="temp-box-actual-header">
+      Sweater<br>Weather
+    </div>
+    <div class="temp-image">
+      <%= image_tag('sweater', size: "100") %>
+    </div>
+    <div class="temp-box-temp-range">
+      (50°F to 69°F)
+    </div>
+    Sweater Weather (50°F to 69°F)
+    <div class="temp-image">
+      <%= image_tag('sweater', size: "100") %>
+    </div>
+  </h2>
+    <section class="cool-trips">
+      <%= render partial: 'flight_partial', collection: @cool_trips, as: :trip %>
+    </section>
+  </div>
 <% end %>
 
 <% if !@cold_trips.empty? %>
-<h2>Build a Snowman (below 50°)</h2>
-  <section class="cold-trips">
-    <%= render partial: 'flight_partial', collection: @cold_trips, as: :trip %>
-  </section>
+  <div class='temperature-box'>
+    <h2 class='temp-box-header'>
+      <div class="temp-box-actual-header">
+        Build a<br>Snowman
+      </div>
+      <div class="temp-image">
+        <%= image_tag('snowman', size: "100") %>
+      </div>
+      <div class="temp-box-temp-range">
+        (below 50°F)
+      </div>
+      Build a Snowman (below 50°F)
+      <div class="temp-image">
+        <%= image_tag('snowman', size: "100") %>
+      </div>
+    </h2>
+      <section class="cold-trips">
+        <%= render partial: 'flight_partial', collection: @cold_trips, as: :trip %>
+      </section>
+  </div>
 <% end %>
-
-<p>*Degrees are in fahrenheit</p>

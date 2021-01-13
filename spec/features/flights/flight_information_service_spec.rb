@@ -25,16 +25,14 @@ describe 'flight service' do
     within(first('.Flight')) do
       expect(page).to have_css('.DestinationCity')
       expect(page).to have_css('.Price')
-      expect(page).to have_css('.Duration')
-      expect(page).to have_css('.Weather')
+      expect(page).to have_css('.weather-text')
       expect(page).to have_css('.Weather_img')
     end
 
     within(:xpath, '(//tr[@class="Flight"])[last()]') do
       expect(page).to have_css('.DestinationCity')
       expect(page).to have_css('.Price')
-      expect(page).to have_css('.Duration')
-      expect(page).to have_css('.Weather')
+      expect(page).to have_css('.weather-text')
       expect(page).to have_css('.Weather_img')
     end
   end
@@ -43,26 +41,26 @@ describe 'flight service' do
     json_data = File.read('spec/fixtures/flights.json')
     @flights_data = JSON.parse(json_data, symbolize_names: true)
     flight_json = {data: [@flights_data[:data][0]]}.to_json
-    
+
     query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=1'
-    
+
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
       .to_return(status: 200, body: flight_json, headers: {})
     end
-    
+
     visit '/'
-    
+
     select 'Denver International', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
-    
+
     expect(current_path).to eq(flight_show_path('773'))
-    
+
     expect(page).to have_content('Las Vegas')
   end
-  
+
   it 'returns error when too far out date given' do
     json = File.read('./spec/fixtures/flight_data_bad_date.json')
     query = '?departure_airport=DEN&departure_date=30/01/2028&limit=20&trip_duration=3'
@@ -114,7 +112,7 @@ describe 'flight service' do
       expect(page).to have_content('No flights match criteria')
     end
   end
-  
+
   it 'will render trips grouped by weather' do
     json = File.read('spec/fixtures/flights.json')
     #json = File.read('./spec/fixtures/flight_data_return.json')
@@ -132,12 +130,12 @@ describe 'flight service' do
     fill_in 'trip_duration', with: 3
 
     click_button('Search Locations')
-    
+
     expect(page).to_not have_css(".hot-trips")
-    
-    
+
+
     expect(page).to_not have_css(".warm-trips")
-    
+
     within ".cool-trips" do
       expect(page).to have_content("Fort Lauderdale")
       expect(page).to have_content("Feels Like: 54.0")
@@ -146,7 +144,7 @@ describe 'flight service' do
     within ".cold-trips" do
       expect(page).to have_content("Washington, D.C.")
       expect(page).to have_content("Feels Like: 33.3")
-      
+
       expect(page).to have_content("Salt Lake City")
       expect(page).to have_content("Feels Like: 32.5")
     end
