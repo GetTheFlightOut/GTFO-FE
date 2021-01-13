@@ -38,12 +38,12 @@ describe 'Trip' do
   describe 'class methods' do
     it 'can sort trips by weather' do
       json = File.read('spec/fixtures/flights.json')
-      # json = File.read('./spec/fixtures/flight_data_return.json')
       trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
         Trip.new(trip_info)
       end
       
       hot, warm, cool, cold = Trip.group_by_weather(trips)
+      
       expect(hot).to be_a Array
       expect(hot.all? { |trip| trip.instance_of?(Trip) }).to eq(true)
       expected = hot.all? { |trip| trip.day_feels_like_f >= 85 }

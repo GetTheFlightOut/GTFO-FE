@@ -131,28 +131,23 @@ describe 'flight service' do
     fill_in 'trip_duration', with: 3
 
     click_button('Search Locations')
-
-    within ".hot-trips" do
-      expect(page).to have_content("Houston")
-      expect(page).to have_content("Feels Like: 95.0")
-    end
-
-    within ".warm-trips" do
-      expect(page).to have_content("San Francisco")
-      expect(page).to have_content("Feels Like: 75.0")
-    end
-
+    
+    expect(page).to_not have_css(".hot-trips")
+    
+    
+    expect(page).to_not have_css(".warm-trips")
+    
     within ".cool-trips" do
-      expect(page).to have_content("Dallas")
-      expect(page).to have_content("Feels Like: 58.0")
+      expect(page).to have_content("Fort Lauderdale")
+      expect(page).to have_content("Feels Like: 54.0")
     end
 
     within ".cold-trips" do
-      expect(page).to have_content("Atlanta")
-      expect(page).to have_content("Feels Like: 25.0")
-
-      expect(page).to have_content("Miami")
-      expect(page).to have_content("Feels Like: 25.0")
+      expect(page).to have_content("Washington, D.C.")
+      expect(page).to have_content("Feels Like: 33.3")
+      
+      expect(page).to have_content("Salt Lake City")
+      expect(page).to have_content("Feels Like: 32.5")
     end
   end
 end
