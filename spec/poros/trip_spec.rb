@@ -42,6 +42,17 @@ describe "Trip" do
       expect(@trip.r_departure_date).to eq("2021-02-04")
     end
 
+    describe "class methods" do
+      it "can sort trips by weather" do
+        json = File.read('./spec/fixtures/flight_data_return.json')
+        trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
+          Trip.new(trip_info)
+        end
+        expected = [[trips[0]], [trips[1]], [trips[2]], [trips[3], trips[4]]]
+        expect(Trip.group_by_weather(trips)).to eq(expected)
+      end
+    end
+
     describe "instance methods" do
       it "can covert strptime to strftime format" do
         expect(@trip.date_convert(@info[:attributes][:departure_datetime])).to eq('2021-01-30')
