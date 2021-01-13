@@ -32,4 +32,46 @@ describe 'Trip' do
     expect(@weather_day.sky_coverage).to eq(@weekly_weather_data[:attributes][:sky_coverage])
     expect(@weather_day.image_path).to eq('sun.jpg')
   end
+
+  it 'can retrieve partly-clouds image' do
+    weekly_weather_data = {
+      type: 'weather',
+      id: nil,
+      attributes: {
+        min_f: 33.08000000000004,
+        max_f: 45.210000000000036,
+        min_c: 1.080000000000041,
+        max_c: 13.210000000000036,
+        day_feels_like_c: 8.54000000000002,
+        day_feels_like_f: 40.54000000000002,
+        description: 'partly cloudy',
+        date: '2021-01-12T19:00:00+00:00',
+        sky_coverage: 0
+      }
+    }
+    weather_day = WeatherDay.new(weekly_weather_data)
+
+    expect(weather_day.image_path).to eq('partly-clouds.jpg')
+  end
+
+  it 'can retrieve thunder image' do
+    weekly_weather_data = {
+      type: 'weather',
+      id: nil,
+      attributes: {
+        min_f: 33.08000000000004,
+        max_f: 45.210000000000036,
+        min_c: 1.080000000000041,
+        max_c: 13.210000000000036,
+        day_feels_like_c: 8.54000000000002,
+        day_feels_like_f: 40.54000000000002,
+        description: 'thunderstorm with heavy drizzle',
+        date: '2021-01-12T19:00:00+00:00',
+        sky_coverage: 0
+      }
+    }
+    weather_day = WeatherDay.new(weekly_weather_data)
+
+    expect(weather_day.image_path).to eq('thunder.jpg')
+  end
 end
