@@ -19,7 +19,7 @@ describe 'when I click on a link to show a specific flight' do
     end
 
     if ENV['WEBMOCK'] == 'true'
-      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/trips/1864")
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/trips/604")
         .to_return(status: 200, body: json3, headers: {})
     end
 
@@ -36,7 +36,7 @@ describe 'when I click on a link to show a specific flight' do
 
     click_link 'Houston'
 
-    expect(current_path).to eq(flight_show_path('1864'))
+    expect(current_path).to eq(flight_show_path('604'))
     expect(page).to have_css('.TripOrigin')
     expect(page).to have_css('.TripDestination')
     expect(page).to have_css('.TripDepTime')
@@ -92,7 +92,7 @@ describe 'when I click on a link to show a specific flight' do
     end
 
     if ENV['WEBMOCK'] == 'true'
-      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/trips/1864")
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/trips/604")
         .to_return(status: 200, body: json3, headers: {})
     end
 

@@ -3,9 +3,12 @@ class SearchFacade
     params[:limit] = 1
     flight_data = BackendService.trips_search(update_params(params))
 
-    return [] if flight_data[:data] == []
+    if flight_data[:data]
+      flight_data[:data][:trip_id].to_i
 
-    flight_data[:data][:trip_id]
+    elsif flight_data[:error]
+      flight_data[:error]
+    end
   end
 
   def self.get_flights(params)
@@ -27,7 +30,7 @@ class SearchFacade
       flight_data[:data][:request_id]
 
     elsif flight_data[:error]
-      raise StandardError, flight_data[:error]
+      flight_data[:error]
     end
   end
 

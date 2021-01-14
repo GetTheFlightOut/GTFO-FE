@@ -120,13 +120,13 @@ describe 'flight service' do
     expect(page).to have_css('.error')
 
     within '.error' do
-      expect(page).to have_content('No flights match criteria')
+      expect(page).to have_content('There were no available trips that matched your search.')
     end
   end
 
   it 'a lucky location search with no results redirects me to welcome index with an informative message' do
     json = File.read('spec/fixtures/lucky_no_data.json')
-    query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=500&limit=1"
+    query = "?departure_airport=DEN&departure_date=30/01/2021&limit=1&trip_duration=500&uid"
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
@@ -146,7 +146,7 @@ describe 'flight service' do
 
   it "a 'Search Locations' query with no results redirects me to welcome index with an informative message" do
     json = File.read('spec/fixtures/lucky_no_data.json')
-    query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=500&limit=20"
+    query = "?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=500&uid"
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
 

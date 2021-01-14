@@ -1,3 +1,4 @@
 {
-  "error": "No flights match criteria"
+  "error": "There were no available trips that matched your search.",
+  "status": 400
 }

@@ -1,9 +1,7 @@
 class FlightsController < ApplicationController
   def show
     @trip = TripFacade.get_trip(params[:id])
-    unless @trip
-      redirect_to root_path, notice: standard_error
-    end
+    redirect_to root_path, notice: standard_error unless @trip
   end
 
   def index
@@ -16,22 +14,23 @@ class FlightsController < ApplicationController
   def search
     if params[:commit] == 'Search Locations'
 
-        @request_id = SearchFacade.get_request(flight_params)
+      @request_id = SearchFacade.get_request(flight_params)
 
       if @request_id == []
         redirect_to root_path, notice: 'There were no available trips that matched your search.'
       else
-        return error_flash(@request_id) if @request_id.class == String
+        return error_flash(@request_id) if @request_id.instance_of?(String)
+
         redirect_to flights_requests_path(@request_id)
       end
     elsif params[:commit] == 'Lucky Location'
 
-        @trip_id = SearchFacade.get_lucky(flight_params)
+      @trip_id = SearchFacade.get_lucky(flight_params)
 
-        if @trip_id == []
+      if @trip_id == []
         redirect_to root_path, notice: 'There were no available trips that matched your search.'
       else
-        return error_flash(@trip_id) if @trip_id.class == String
+        return error_flash(@trip_id) if @trip_id.instance_of?(String)
 
         params[:trip_id] = @trip_id
         redirect_to flight_show_path(@trip_id)
@@ -41,12 +40,13 @@ class FlightsController < ApplicationController
   end
 
   private
+
   def flight_params
     params.permit(:departure_airport, :departure_date, :trip_duration)
   end
 
   def error_flash(error)
-    flash[:error] = error.message
+    flash[:error] = error
     redirect_to root_path
   end
 

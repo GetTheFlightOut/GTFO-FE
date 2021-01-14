@@ -18,9 +18,11 @@ class Trip
               :day_feels_like_f,
               :booking_link,
               :description,
-              :weekly_forecast
+              :weekly_forecast,
+              :id
 
   def initialize(info)
+    @id = info[:id]
     @flight_id = info[:attributes][:flight_id].to_i
     @departure_datetime = info[:attributes][:departure_datetime]
     @arrival_datetime = info[:attributes][:arrival_datetime]
