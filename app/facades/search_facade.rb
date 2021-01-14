@@ -3,6 +3,7 @@ class SearchFacade
     params[:limit] = 1
     new_params = update_params(params)
     flight_data = BackendService.trips_search(new_params)
+    return [] if flight_data[:data] == []
     Trip.new(flight_data[:data][0])
   end
 
@@ -13,7 +14,6 @@ class SearchFacade
       flight_data[:data].map do |data|
         Trip.new(data)
       end
-
     elsif flight_data[:error]
       flight_data[:error]
     end
