@@ -11,7 +11,7 @@ function checkFields(id1, id2) {
 }
 
 function myMove() {
-  var elem = document.getElementById("planeImage");   
+  var elem = document.getElementById("planeImage");
   var pos = 125; //start position of object upon click (relative to left side of container)
   var id = setInterval(frame, 10); //will call frame method every 10ms
   function frame() {
@@ -29,7 +29,7 @@ function myMove() {
 
 
 function myMove_left() {
-  var elem = document.getElementById("planeImage");   
+  var elem = document.getElementById("planeImage");
   var pos = 520; //start position of object upon click (relative to left side of container)
   var id = setInterval(frame_left, 10); //10 is speed of object, 1 is fast
   function frame_left() {
@@ -60,7 +60,7 @@ function myMove_left() {
   give you some great deals to choose from, complete with weather information.
 </p>
 
-<%= form_with url: '/flights', method: :get, local: true do |f| %>
+<%= form_with url: "/flights/search", method: :get, local: true do |f| %>
 
   <%= f.label :departure_airport, "Departure Airport: " %>
   <%= f.select :departure_airport, [["Denver International", "DEN"],

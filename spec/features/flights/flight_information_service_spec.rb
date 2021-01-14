@@ -2,12 +2,19 @@ require 'rails_helper'
 
 describe 'flight service' do
   it 'will return trip results for search locations' do
-    json = File.read('spec/fixtures/flights.json')
-    query = '?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20'
+    json1 = File.read('spec/fixtures/request_id_return.json')
+    json2 = File.read('spec/fixtures/flights.json')
+    query = '?departure_airport=DEN&departure_date=30/01/2021&limit=20&trip_duration=3&uid'
+    json1_parsed = JSON.parse(json1, symbolize_names: true)
 
     if ENV['WEBMOCK'] == 'true'
       stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
-        .to_return(status: 200, body: json, headers: {})
+        .to_return(status: 200, body: json1, headers: {})
+    end
+
+    if ENV['WEBMOCK'] == 'true'
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/requests/#{json1_parsed[:data][:request_id]}")
+        .to_return(status: 200, body: json2, headers: {})
     end
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
@@ -18,7 +25,7 @@ describe 'flight service' do
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
 
-    expect(page).to have_current_path(flights_path, ignore_query: true)
+    expect(page).to have_current_path(flights_requests_path(json1_parsed[:data][:request_id]), ignore_query: true)
 
     expect(page).to have_css('.Flight', count: 20)
 

@@ -1,21 +1,30 @@
 class SearchFacade
   def self.get_lucky(params)
     params[:limit] = 1
-    new_params = update_params(params)
-    flight_data = BackendService.trips_search(new_params)
-    Trip.new(flight_data[:data][0])
+    flight_data = BackendService.trips_search(update_params(params))
+    flight_data[:data][:trip_id]
   end
 
   def self.get_flights(params)
     params[:limit] = 20
     flight_data = BackendService.trips_search(update_params(params))
+
     if flight_data[:data]
-      flight_data[:data].map do |data|
-        Trip.new(data)
-      end
+      flight_data[:data][:request_id].to_i
 
     elsif flight_data[:error]
       flight_data[:error]
+    end
+  end
+
+  def self.get_request(params)
+    params[:limit] = 20
+    flight_data = BackendService.trips_search(update_params(params))
+    if flight_data[:data]
+      flight_data[:data][:request_id]
+
+    elsif flight_data[:error]
+      raise StandardError.new flight_data[:error]
     end
   end
 

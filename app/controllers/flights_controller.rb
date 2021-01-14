@@ -1,19 +1,34 @@
 class FlightsController < ApplicationController
   def show
-    @trip = Rails.cache.read(params[:id].to_i) or not_found
+    @trip = TripFacade.get_trip(params[:id])
   end
 
   def index
+    @request_id = params[:id]
+    @trips = RequestFacade.get_request(@request_id)
+
+    @hot_trips, @warm_trips, @cool_trips, @cold_trips = Trip.group_by_weather(@trips)
+  end
+
+  def search
     if params[:commit] == 'Search Locations'
-      @trips = SearchFacade.get_flights(flight_params)
-      return error_flash(@trips) if @trips.class == String
-      write_to_cache(@trips)
-      @hot_trips, @warm_trips, @cool_trips, @cold_trips = Trip.group_by_weather(@trips)
+      begin
+        @request_id = SearchFacade.get_request(flight_params)
+      rescue StandardError => error
+
+        return error_flash(error)
+      end
+
+      redirect_to flights_requests_path(@request_id)
     elsif params[:commit] == 'Lucky Location'
-      @trip = SearchFacade.get_lucky(flight_params)
-      return error_flash(@trip) if @trip.class == String
-      write_to_cache([@trip])
-      redirect_to flight_show_path(@trip.flight_id)
+      begin
+        @trip_id = SearchFacade.get_lucky(flight_params)
+      rescue StandardError => error
+        return error_flash(error)
+
+      end
+      params[:trip_id] = @trip_id
+      redirect_to flight_show_path(@trip_id)
     end
   end
 
@@ -23,7 +38,7 @@ class FlightsController < ApplicationController
   end
 
   def error_flash(error)
-    flash[:error] = error
+    flash[:error] = error.message
     redirect_to root_path
   end
 
