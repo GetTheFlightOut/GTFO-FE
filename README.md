@@ -92,6 +92,12 @@ git clone git@github.com:GetThatFlightOut/GTFO-FE.git
 cd GTFO-FE
 bundle install
 rake db:{create,migrate}
+firgaro install
+# Setup ENV Variables in application.yml: 
+# BACKEND_URL: "http://localhost:3000" (or "https://gtfo-be.herokuapp.com to connect to BE server)
+# GOOGLE_CLIENT_ID: YOUR-GOOGLE-CLIENT-ID
+# GOOGLE_SECRET: YOUR-GOOGLE_SECRET_KEY
+# WEBMOCK: 'true' (or false to test against backend connection server)
 rails server
 visit localhost:3000 in your web browser
 ```
