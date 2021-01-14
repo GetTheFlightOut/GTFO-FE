@@ -60,7 +60,7 @@ describe 'when I click on a link to show a specific flight' do
     end
   end
 
-  it 'recieves an error if I navigate to an unknown flight id' do
+  it 'invalid or expired flights show visits redirect to welcome index with a flash message' do
     json3 = File.read('spec/fixtures/flight_does_not_exist.json')
 
     if ENV['WEBMOCK'] == 'true'
@@ -68,8 +68,10 @@ describe 'when I click on a link to show a specific flight' do
         .to_return(status: 200, body: json3, headers: {})
     end
 
-    visit(flight_show_path(5_631_205))
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    visit flight_show_path(5631205)
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Oops! Either that search expired, or you're trying to go somewhere you don't belong. Either way, try a new search to find your dream getaway.")
   end
 
   it 'can see and visit accomodation links customized for destination city and travel dates' do

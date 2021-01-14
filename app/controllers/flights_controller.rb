@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
   def show
     @trip = TripFacade.get_trip(params[:id])
     unless @trip
-      render :file => './public/404.html', :status => 404
+      redirect_to root_path, notice: standard_error
     end
   end
 
@@ -15,23 +15,28 @@ class FlightsController < ApplicationController
 
   def search
     if params[:commit] == 'Search Locations'
-      begin
+
         @request_id = SearchFacade.get_request(flight_params)
-      rescue StandardError => error
 
-        return error_flash(error)
+      if @request_id == []
+        redirect_to root_path, notice: 'There were no available trips that matched your search.'
+      else
+        return error_flash(@request_id) if @request_id.class == String
+        redirect_to flights_requests_path(@request_id)
       end
-
-      redirect_to flights_requests_path(@request_id)
     elsif params[:commit] == 'Lucky Location'
-      begin
-        @trip_id = SearchFacade.get_lucky(flight_params)
-      rescue StandardError => error
-        return error_flash(error)
 
+        @trip_id = SearchFacade.get_lucky(flight_params)
+
+        if @trip_id == []
+        redirect_to root_path, notice: 'There were no available trips that matched your search.'
+      else
+        return error_flash(@trip_id) if @trip_id.class == String
+
+        params[:trip_id] = @trip_id
+        redirect_to flight_show_path(@trip_id)
       end
-      params[:trip_id] = @trip_id
-      redirect_to flight_show_path(@trip_id)
+
     end
   end
 

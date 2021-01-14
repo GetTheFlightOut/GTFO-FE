@@ -2,6 +2,9 @@ class SearchFacade
   def self.get_lucky(params)
     params[:limit] = 1
     flight_data = BackendService.trips_search(update_params(params))
+
+    return [] if flight_data[:data] == []
+
     flight_data[:data][:trip_id]
   end
 
@@ -24,16 +27,14 @@ class SearchFacade
       flight_data[:data][:request_id]
 
     elsif flight_data[:error]
-      raise StandardError.new flight_data[:error]
+      raise StandardError, flight_data[:error]
     end
   end
 
-  private
-
   def self.update_params(params)
     new_params = params
-    new_params[:departure_date] = Date.new(*(params[:departure_date].split('-').map(&:to_i))).strftime('%d/%m/%Y')
+    new_params[:departure_date] = Date.new(*params[:departure_date].split('-').map(&:to_i)).strftime('%d/%m/%Y')
 
-    return new_params
+    new_params
   end
 end
