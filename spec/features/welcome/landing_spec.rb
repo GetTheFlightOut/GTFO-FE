@@ -26,7 +26,7 @@ describe 'welcome page' do
       expect(page).to_not have_link('Logout')
     end
   end
-
+  
   describe 'As an authenticated users' do
     it 'user logs in using Google OAuth' do
 

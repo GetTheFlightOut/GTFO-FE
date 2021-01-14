@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <p class="TripBooking"><%= button_to("Book Your Flight", @trip.booking_link, class: 'myButton') %></p>
+    <p class="TripBooking"><%= button_to("Book Your Flight", @trip.booking_link, class: 'myButton', method: :get) %></p>
   </div>
 
   <div class ='weather'>

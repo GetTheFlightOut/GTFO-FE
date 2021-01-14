@@ -1,0 +1,169 @@
+{
+  "data": {
+    "id": "102",
+    "type": "trip",
+    "attributes": {
+      "origin_city": "Denver",
+      "destination_city": "Houston",
+      "origin_iata": "DEN",
+      "destination_iata": "IAH",
+      "latitude": 29.9844444,
+      "longitude": -95.341389,
+      "price": 47,
+      "departure_datetime": "2021-01-30T10:07:00.000Z",
+      "arrival_datetime": "2021-01-30T13:32:00.000Z",
+      "r_departure_datetime": "2021-02-02T06:25:00.000Z",
+      "r_arrival_datetime": "2021-02-02T07:58:00.000Z",
+      "booking_link": "https://www.kiwi.com/deep?from=DEN&to=IAH&flightsId=0713230e48e1000055702f9c_0%7C230e071348e40000963e29b9_0&price=39&passengers=1&affilid=picky&lang=en&currency=USD&booking_token=BbkOXQKh-FnCWsmM58Mqtutq3aKvYm29LB5K8t0z8gg2cyBePP8qzYkIKDP2lvRehHlcZVLAluLDZKte_U1UFoxhjYAAu9FzgJC6kRpsw0wACPRDvDod71ROm1voZeXUJFwKaOC5zz1niaTW5GUuE_oCRDrN3qfna1tohDERg3h3DLC0ID0O_KWH6EuZi5fTq1649mmqzqHZGQtUdD5do6Xl3CdshSz-ILgk442NIpA8iNqJkEcws8KgZhJWels3MV0rFQJrFxnM0vDwH3sZo8WOJhgV9wns_mPhqSZOCgJSkxajtC-FSxHEk8WT2wwck_lZ_qfGWyW3iIBkEd76aKpJP8lc5O5X3NbcwGpjDZY6FXBKbFPng1vqbOcnn4-S-BB4DwduyyWmSelvoYJOqlKaQva35UZOAIm69ZaDZ3cfefhgMbhkDhgNJXa7ku0BoZNrUjEJvX_gr8WGTbzLAZm_FC7qr9OQerUfNTgPENmYpGVbf1hNJDOkLdAMyTi93eYNEjgMME1HBdx9FKIA4PKZ2jJCSECI9VohS38O0GatwDoiFynAqk8vaPtqQOZQbTQau_FZ9v55ib05AYlZYOMhiCJx6U9SBS5L-Pus1EXihMPGJRkuxeOR892jlbbWSMpbU0H89K1Dp3piQt8qzW41WdxmIMwUuvSj6-VYdLICcRq4Xn6YobzOoI_VPlZ1eN1EOVgg5_nJGOIcPGQtEQg==",
+      "trip_duration": 3,
+      "flight_id": 242,
+      "min_f": 39.28000000000003,
+      "max_f": 50.160000000000025,
+      "min_c": 7.28000000000003,
+      "max_c": 18.160000000000025,
+      "day_feels_like_f": 43.10000000000002,
+      "day_feels_like_c": 11.100000000000023,
+      "description": "clear sky",
+      "weather_date": "2021-01-14T18:00:00.000Z",
+      "sky_coverage": 0,
+      "weather": [
+        {
+          "data": {
+            "id": "817",
+            "type": "weather",
+            "attributes": {
+              "max_f": 50.160000000000025,
+              "min_f": 39.28000000000003,
+              "min_c": 7.28000000000003,
+              "max_c": 18.160000000000025,
+              "day_feels_like_f": 43.10000000000002,
+              "day_feels_like_c": 11.100000000000023,
+              "description": "clear sky",
+              "date": "2021-01-14T18:00:00.000Z",
+              "sky_coverage": 0
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "818",
+            "type": "weather",
+            "attributes": {
+              "max_f": 45.960000000000036,
+              "min_f": 40.52000000000004,
+              "min_c": 8.520000000000039,
+              "max_c": 13.960000000000036,
+              "day_feels_like_f": 38.09000000000003,
+              "day_feels_like_c": 6.090000000000032,
+              "description": "clear sky",
+              "date": "2021-01-15T18:00:00.000Z",
+              "sky_coverage": 0
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "819",
+            "type": "weather",
+            "attributes": {
+              "max_f": 45.56,
+              "min_f": 39.14000000000004,
+              "min_c": 7.140000000000043,
+              "max_c": 13.560000000000002,
+              "day_feels_like_f": 38.74000000000001,
+              "day_feels_like_c": 6.740000000000009,
+              "description": "clear sky",
+              "date": "2021-01-16T18:00:00.000Z",
+              "sky_coverage": 0
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "820",
+            "type": "weather",
+            "attributes": {
+              "max_f": 48.27000000000004,
+              "min_f": 39.23000000000002,
+              "min_c": 7.230000000000018,
+              "max_c": 16.27000000000004,
+              "day_feels_like_f": 42.80000000000001,
+              "day_feels_like_c": 10.800000000000011,
+              "description": "broken clouds",
+              "date": "2021-01-17T18:00:00.000Z",
+              "sky_coverage": 60
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "821",
+            "type": "weather",
+            "attributes": {
+              "max_f": 49.19,
+              "min_f": 41.129999999999995,
+              "min_c": 9.129999999999995,
+              "max_c": 17.189999999999998,
+              "day_feels_like_f": 43.72000000000003,
+              "day_feels_like_c": 11.720000000000027,
+              "description": "clear sky",
+              "date": "2021-01-18T18:00:00.000Z",
+              "sky_coverage": 0
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "822",
+            "type": "weather",
+            "attributes": {
+              "max_f": 51.650000000000034,
+              "min_f": 46.99000000000001,
+              "min_c": 14.990000000000009,
+              "max_c": 19.650000000000034,
+              "day_feels_like_f": 48.370000000000005,
+              "day_feels_like_c": 16.370000000000005,
+              "description": "light rain",
+              "date": "2021-01-19T18:00:00.000Z",
+              "sky_coverage": 98
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "823",
+            "type": "weather",
+            "attributes": {
+              "max_f": 50.28000000000003,
+              "min_f": 49.06,
+              "min_c": 17.060000000000002,
+              "max_c": 18.28000000000003,
+              "day_feels_like_f": 50.85000000000002,
+              "day_feels_like_c": 18.850000000000023,
+              "description": "heavy intensity rain",
+              "date": "2021-01-20T18:00:00.000Z",
+              "sky_coverage": 100
+            }
+          }
+        },
+        {
+          "data": {
+            "id": "824",
+            "type": "weather",
+            "attributes": {
+              "max_f": 52.74000000000001,
+              "min_f": 49.47000000000003,
+              "min_c": 17.470000000000027,
+              "max_c": 20.74000000000001,
+              "day_feels_like_f": 52.83000000000004,
+              "day_feels_like_c": 20.83000000000004,
+              "description": "heavy intensity rain",
+              "date": "2021-01-21T18:00:00.000Z",
+              "sky_coverage": 100
+            }
+          }
+        }
+      ]
+    }
+  }
+}

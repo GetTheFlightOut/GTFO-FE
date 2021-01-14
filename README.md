@@ -1,3 +1,12 @@
+<!-- Shields -->
+![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/gem/v/sinatra)
+![](https://img.shields.io/gem/v/fast_jsonapi)
+![](https://img.shields.io/github/contributors/GetThatFlightOut/GTFO-FE)
+![](https://img.shields.io/badge/GetThatFlightOut-FE-red)
+![](https://github.com/GetThatFlightOut/GTFO-FE/stargazers)
+![](https://img.shields.io/travis/com/GetThatFlightOut/GTFO-FE)
+
 # GTFO-FE
 ![image](https://user-images.githubusercontent.com/68172332/104384272-6d70f100-54ee-11eb-94ba-287258e83de7.png)
 
@@ -10,6 +19,9 @@
   - [Licenses](#licenses)
   - [Contact](#contact)
   - [Acknowledgments](#acknowledgments)
+  
+  ![plane](https://user-images.githubusercontent.com/66448493/104544298-9e335200-55e4-11eb-9275-62d6a31ac828.gif)
+
 
 ## What it does
 
@@ -20,16 +32,53 @@ To view the production site, please visit the [GTFO link](https://gtfo-fe.heroku
 To view the other components of the application please visit the [Github Project Organization](https://github.com/GetThatFlightOut).
 
 SOA System Design:
-![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
+![Screen Shot 2021-01-14 at 8 47 13 AM](https://user-images.githubusercontent.com/68167430/104614507-8e982580-5645-11eb-930b-c380d62d13c4.png)
+
+[Miro Board](https://miro.com/app/board/o9J_lZk4cS8=/) used for planning.
+
+Database Architecture:
+![GTFO_DBA](/.github/images/GTFO_database_architecture.png)
 
   ### API Endpoints pulled from backend
-
-  Current API data pulled from the backend structure is:
-
+  
+  The app uses this request-response sequence:
+  1. The frontend calls the backend with information about a search for flights
+  2. The backend retrieves the data, and returns an id for the type of call it was, like so:
+     Call to backend: https://gtfo-be.herokuapp.com/api/v1/search?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20
+     
+    ```    
+    {
+      "data": {
+        "request_id": 6
+      }
+    }
+    ```
+    
+  3. The frontend then calls the backend endpoint for the type of data it gets back, and gets the data back, like so:
+  
+     Call to backend: https://gtfo-be.herokuapp.com/api/v1/requests/6
+  
   ```
-{
-    "data": [
-        {
+  "data": {
+        "id": "6",
+        "type": "request",
+        "attributes": {
+            "id": 6,
+            "updated_at": "2021-01-14T08:13:40.285Z"
+        },
+        "relationships": {
+            "trips": {
+                "data": [
+                    # References to trip objects
+                ]
+            }
+        }
+    },
+    "included": [
+                    # Actual trip object data, including weather
+                    # ex:
+                    
+                    {
             "id": "0",
             "type": "trip",
             "attributes": {
@@ -72,14 +121,18 @@ SOA System Design:
                             "sky_coverage": 10
                         }
                     },
-                    ...(there will be 8 days worth of weather forecast here)
+                    # there will be 8 days worth of weather forecast here
                 ]
             }
         }
     ]
 }
-```
-Results above are from the following call: http://gtfo-be.herokuapp.com/api/v1/search?departure_airport=DEN&departure_date=30/01/2021&trip_duration=5&limit=20
+                    
+  
+  ```
+
+  4. The frontend parses the data, and displays the results on the page for the user.
+
 
 ## How to Install GTFO-FE
 
@@ -113,6 +166,16 @@ if ENV['WEBMOCK'] == 'true'
   #code
 end
 ```
+#### Our testing addresses a number of sad paths including:
+
+Lucky Location Search Returning No Results
+![gtfo_luck_no_trips](https://user-images.githubusercontent.com/68172332/104547937-f53d2500-55ec-11eb-95a0-5cc8398cd3d1.gif)
+
+Flights Show Path with Invalid/Expired ID
+![gtfo_bad_path](https://user-images.githubusercontent.com/68172332/104548313-c70c1500-55ed-11eb-9822-3aa6b4995124.gif)
+
+Search Locations Search Returning No Results
+![gtfo_no_trips_standard](https://user-images.githubusercontent.com/68172332/104548226-99bf6700-55ed-11eb-8a68-dd9bac5b7e70.gif)
 
 ## Learning Goals
 
@@ -132,27 +195,30 @@ end
 
   * Ruby 2.5.3
   * Sinatra
+  
+## Contacts
 
-## Contact
-
-#### Todd Estes: [LinkedIn](https://www.linkedin.com/in/toddwestes/), [Email](mailto:elestes@gmail.com), [GitHub](https://github.com/Todd-Estes)
+#### Todd Estes: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/toddwestes/), [Email](mailto:elestes@gmail.com), [GitHub](https://github.com/Todd-Estes)
  
-#### Connor Ferguson: [LinkedIn](https://www.linkedin.com/in/connor-p-ferguson/), [Email](mailto:cpfergus1@gmail.com), [GitHub](https://github.com/cpfergus1)
+#### Connor Ferguson: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/connor-p-ferguson/), [Email](mailto:cpfergus1@gmail.com), [GitHub](https://github.com/cpfergus1)
  
-#### George Soderholm: [LinkedIn](https://www.linkedin.com/in/george-soderholm-05776947/), [Email](mailto:georgesoderholm@gmail.com), [GitHub](https://github.com/GeorgieGirl24)
+#### George Soderholm: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/george-soderholm-05776947/), [Email](mailto:georgesoderholm@gmail.com), [GitHub](https://github.com/GeorgieGirl24)
     
-#### Sage Freeman-Gonzales: [LinkedIn](https://www.linkedin.com/in/sagefreemangonzales/), [Email](mailto:sagegonzales15@gmail.com), [GitHub](https://github.com/SageOfCode)
+#### Sage Freeman-Gonzales: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/sagefreemangonzales/), [Email](mailto:sagegonzales15@gmail.com), [GitHub](https://github.com/SageOfCode)
  
-#### Sheryl Stillman: [LinkedIn](https://www.linkedin.com/in/sherylstillman1/), [Email](mailto:sheryl.stillman@gmail.com), [GitHub](https://github.com/stillsheryl)
+#### Sheryl Stillman: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/sherylstillman1/), [Email](mailto:sheryl.stillman@gmail.com), [GitHub](https://github.com/stillsheryl)
     
-#### Aidan Murray:  [LinkedIn](http://www.linkedin.com/in/aidan-murray-teknoserval), [Email](mailto:aidanhansm@gmail.com), [GitHub](https://github.com/TeknoServal)
+#### Aidan Murray:  [![LinkedIn][linkedin-shield]](http://www.linkedin.com/in/aidan-murray-teknoserval), [Email](mailto:aidanhansm@gmail.com), [GitHub](https://github.com/TeknoServal)
       
-#### Jesse Mellinger: [LinkedIn](https://www.linkedin.com/in/jesse-mellinger/), [Email](mailto:jesse.m.mellinger@gmail.com), [GitHub](https://github.com/JesseMellinger)
+#### Jesse Mellinger: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/jesse-mellinger/), [Email](mailto:jesse.m.mellinger@gmail.com), [GitHub](https://github.com/JesseMellinger)
         
-#### Nick King: [LinkedIn](https://www.linkedin.com/in/nick-king-3128501ba/), [Email](mailto:nickmaxking@gmail.com), [GitHub](https://github.com/nmking22)
+#### Nick King: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/nick-king-3128501ba/), [Email](mailto:nickmaxking@gmail.com), [GitHub](https://github.com/nmking22)
  
-#### Brian Liu: [LinkedIn](https://www.linkedin.com/in/brian-liu-8356287b/), [Email](mailto:brian.b.liu@gmail.com), [GitHub](https://github.com/badgerbreezy)
+#### Brian Liu: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/brian-liu-8356287b/), [Email](mailto:brian.b.liu@gmail.com), [GitHub](https://github.com/badgerbreezy)
     
-#### Will Dunlap: [LinkedIn](https://www.linkedin.com/in/willwdunlap/), [Email](mailto:dunlapww@gmail.com), [GitHub](https://github.com/dunlapww)
+#### Will Dunlap: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/willwdunlap/), [Email](mailto:dunlapww@gmail.com), [GitHub](https://github.com/dunlapww)
    
 ## Acknowledgments
+
+<!-- MARKDOWN LINKS -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
