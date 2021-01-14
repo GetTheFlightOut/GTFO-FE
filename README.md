@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/68172332/104384272-6d70f100-54ee-11eb-94ba-287258e83de7.png)
 
 ## Table of Contents
-  - [What it does](#what-it-does)
+  - [What it does/Demo](#what-it-does)
   - [How to Install GTFO-FE](#how-to-install-gtfo-fe)
   - [Dependencies](#dependencies)
   - [Testing](#testing)
@@ -13,14 +13,16 @@
   
   ![plane](https://user-images.githubusercontent.com/66448493/104544298-9e335200-55e4-11eb-9275-62d6a31ac828.gif)
 
-
-## What it does
+## What it does/Demo
 
 This project part of a Service-Oriented Architecture (SOA) application that provides users with flight and weather information based on search parameters that the user provides. The GTFO-FE serves as the user facing part of the application that a user can interact with. A user provides information through a form and is returned flight and weather information. The front end aplpication makes a call to the backend application, which in turn calls the Weather and Flight APIs and combines the data from both APIs into one JSON package to send to the front end.
 
 To view the production site, please visit the [GTFO link](https://gtfo-fe.herokuapp.com/).
 
 To view the other components of the application please visit the [Github Project Organization](https://github.com/GetThatFlightOut).
+
+### Demo
+<img src='app/assets/images/search.gif' width="1000"/>
 
 SOA System Design:
 ![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
