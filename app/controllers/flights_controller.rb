@@ -1,6 +1,9 @@
 class FlightsController < ApplicationController
   def show
-    @trip = Rails.cache.read(params[:id].to_i) or not_found
+    @trip = Rails.cache.read(params[:id].to_i)
+    unless @trip
+      redirect_to root_path, notice: standard_error
+    end
   end
 
   def index
