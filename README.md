@@ -25,14 +25,49 @@ To view the other components of the application please visit the [Github Project
 SOA System Design:
 ![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
 
+Database Architecture:
+![GTFO_DBA](/.github/images/GTFO_database_architecture.png)
+
   ### API Endpoints pulled from backend
-
-  Current API data pulled from the backend structure is:
-
+  
+  The app uses this request-response sequence:
+  1. The frontend calls the backend with information about a search for flights
+  2. The backend retrieves the data, and returns an id for the type of call it was, like so:
+     Call to backend: https://gtfo-be.herokuapp.com/api/v1/search?departure_airport=DEN&departure_date=30/01/2021&trip_duration=3&limit=20
+     
+    ```    
+    {
+      "data": {
+        "request_id": 6
+      }
+    }
+    ```
+    
+  3. The frontend then calls the backend endpoint for the type of data it gets back, and gets the data back, like so:
+  
+     Call to backend: https://gtfo-be.herokuapp.com/api/v1/requests/6
+  
   ```
-{
-    "data": [
-        {
+  "data": {
+        "id": "6",
+        "type": "request",
+        "attributes": {
+            "id": 6,
+            "updated_at": "2021-01-14T08:13:40.285Z"
+        },
+        "relationships": {
+            "trips": {
+                "data": [
+                    # References to trip objects
+                ]
+            }
+        }
+    },
+    "included": [
+                    # Actual trip object data, including weather
+                    # ex:
+                    
+                    {
             "id": "0",
             "type": "trip",
             "attributes": {
@@ -75,14 +110,18 @@ SOA System Design:
                             "sky_coverage": 10
                         }
                     },
-                    ...(there will be 8 days worth of weather forecast here)
+                    # there will be 8 days worth of weather forecast here
                 ]
             }
         }
     ]
 }
-```
-Results above are from the following call: http://gtfo-be.herokuapp.com/api/v1/search?departure_airport=DEN&departure_date=30/01/2021&trip_duration=5&limit=20
+                    
+  
+  ```
+
+  4. The frontend parses the data, and displays the results on the page for the user.
+
 
 ## How to Install GTFO-FE
 
