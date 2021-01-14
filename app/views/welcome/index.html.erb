@@ -37,6 +37,9 @@ function myMove_left() {
 </script>
 
 <!-- <div class="main-container"> -->
+<div class="temperature-box">
+
+<div align="center">
 <h1>Welcome to Get The F(light) Out!</h1>
 
 
@@ -63,10 +66,10 @@ function myMove_left() {
   <%= f.label :trip_duration, "Trip duration: " %>
   <%= f.number_field :trip_duration, value: 1, min: 1 %> days
 
-  <%= f.submit "Lucky Location", onclick: "myMove();"%>
+  <%= f.submit "Lucky Location", onclick: "myMove();", class: "myButton"%>
 
   <% if current_user %>
-    <%= f.submit "Search Locations", onclick: "myMove();" %>
+    <%= f.submit "Search Locations", onclick: "myMove();", class: "myButton" %>
   <% else %>
     <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
   <% end %>
@@ -76,6 +79,8 @@ function myMove_left() {
   <div id ="planeBackground">
 <%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
 <div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %></div>
+</div>
+</div>
 </div>
 
 
