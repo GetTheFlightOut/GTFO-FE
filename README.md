@@ -25,6 +25,8 @@ To view the other components of the application please visit the [Github Project
 SOA System Design:
 ![Screen Shot 2021-01-14 at 8 47 13 AM](https://user-images.githubusercontent.com/68167430/104614507-8e982580-5645-11eb-930b-c380d62d13c4.png)
 
+[Miro Board](https://miro.com/app/board/o9J_lZk4cS8=/) used for planning.
+
   ### API Endpoints pulled from backend
 
   Current API data pulled from the backend structure is:
