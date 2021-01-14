@@ -11,9 +11,13 @@ class FlightsController < ApplicationController
       @hot_trips, @warm_trips, @cool_trips, @cold_trips = Trip.group_by_weather(@trips)
     elsif params[:commit] == 'Lucky Location'
       @trip = SearchFacade.get_lucky(flight_params)
-      return error_flash(@trip) if @trip.class == String
-      write_to_cache([@trip])
-      redirect_to flight_show_path(@trip.flight_id)
+      if @trip == []
+        redirect_to root_path, notice: 'There were no available trips that matched your search.'
+      else
+        return error_flash(@trip) if @trip.class == String
+        write_to_cache([@trip])
+        redirect_to flight_show_path(@trip.flight_id)
+      end
     end
   end
 
