@@ -113,6 +113,26 @@ describe 'flight service' do
     end
   end
 
+  it 'a lucky location search with no results redirects me to welcome index with an informative message' do
+    json = File.read('spec/fixtures/lucky_no_data.json')
+    query = "?departure_airport=DEN&departure_date=30/01/2021&trip_duration=500&limit=1"
+
+    if ENV['WEBMOCK'] == 'true'
+      stub_request(:get, "#{ENV['BACKEND_URL']}/api/v1/search#{query}")
+        .to_return(status: 200, body: json, headers: {})
+    end
+
+    visit '/'
+
+    select "Denver International", from: "departure_airport"
+    fill_in "departure_date", with: "2021-01-30"
+    fill_in "trip_duration", with: 500
+    click_button("Lucky Location")
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content('There were no available trips that matched your search.')
+  end
+
   it 'will render trips grouped by weather' do
     json = File.read('spec/fixtures/flights.json')
     #json = File.read('./spec/fixtures/flight_data_return.json')
