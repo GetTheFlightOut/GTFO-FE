@@ -113,11 +113,15 @@ if ENV['WEBMOCK'] == 'true'
   #code
 end
 ```
-Our testing addresses a number of sad paths including:
+#### Our testing addresses a number of sad paths including:
+
+Lucky Location Search Returning No Results
 ![gtfo_luck_no_trips](https://user-images.githubusercontent.com/68172332/104547937-f53d2500-55ec-11eb-95a0-5cc8398cd3d1.gif)
 
+Flights Show Path with Invalid/Expired ID
 ![gtfo_bad_path](https://user-images.githubusercontent.com/68172332/104548313-c70c1500-55ed-11eb-9822-3aa6b4995124.gif)
 
+Search Locations Search Returning No Results
 ![gtfo_no_trips_standard](https://user-images.githubusercontent.com/68172332/104548226-99bf6700-55ed-11eb-8a68-dd9bac5b7e70.gif)
 
 ## Learning Goals
