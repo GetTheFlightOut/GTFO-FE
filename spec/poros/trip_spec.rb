@@ -4,7 +4,7 @@ describe 'Trip' do
     json_data = File.read('spec/fixtures/flights.json')
     @flight_info = JSON.parse(json_data, symbolize_names: true)
 
-    @flight_json = @flight_info[:data][0]
+    @flight_json = @flight_info[:included][0]
 
     @test_flight = Trip.new(@flight_json)
   end
@@ -38,7 +38,7 @@ describe 'Trip' do
   describe 'class methods' do
     it 'can sort trips by weather' do
       json = File.read('spec/fixtures/flights.json')
-      trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
+      trips = JSON.parse(json, symbolize_names: true)[:included].map do |trip_info|
         Trip.new(trip_info)
       end
 

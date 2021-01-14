@@ -1,6 +1,9 @@
 class FlightsController < ApplicationController
   def show
     @trip = TripFacade.get_trip(params[:id])
+    unless @trip
+      render :file => './public/404.html', :status => 404
+    end
   end
 
   def index
