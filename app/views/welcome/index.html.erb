@@ -38,8 +38,10 @@ function myMove_left() {
 
 <!-- <div class="main-container"> -->
 <div class='welcome-page'>
-  <div class="welcome-title">
-    <h2>Welcome to Get The F(light) Out!</h2>
+  <div class="welcome-intro-container">
+    <div class="welcome-title">
+      <h2>Welcome to Get The F(light) Out!</h2>
+    </div>
     <div class="welcome-tagline">
       <h3>Gotta go? GTFO.</h3>
     </div>
@@ -52,35 +54,46 @@ function myMove_left() {
         give you some great deals to choose from, complete with weather information.
     </div>
   </div>
+  <div class="departure-form">
+    <%= form_with url: '/flights', method: :get, local: true do |f| %>
+    <div class="departure_airport">
+      <%= f.label :departure_airport, "Departure Airport: " %>
+      <%= f.select :departure_airport, [["Denver International", "DEN"],
+      ["Hartsfield/Jackson International", "ATL"],
+      ["Los Angeles International", "LAX"],
+      ["Chicago O'Hare International", "ORD"],
+      ["Kennedy International", "JFK"]] %>
+    </div>
+    <div class="departure-date">
+      <%= f.label :departure_date, "Departure Date: " %>
+      <%= f.date_field :departure_date, value: Date.today, min: Date.today %>
+    </div>
+    <div class="departure-duration">
+      <%= f.label :trip_duration, "Trip duration: " %>
+      <%= f.number_field :trip_duration, value: 1, min: 1 %> days
+    </div>
+    <div class="departure-search-button-container">
+      <div class="button-container">
+        <div class="lucky-button">
+          <%= f.submit "Lucky Location", onclick: "myMove();"%>
+        </div>
+      </div>
+    </div>
 
-<%= form_with url: '/flights', method: :get, local: true do |f| %>
+    <% if current_user %>
+      <%= f.submit "Search Locations", onclick: "myMove();" %>
+    <% else %>
+      <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
+    <% end %>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
 
-  <%= f.label :departure_airport, "Departure Airport: " %>
-  <%= f.select :departure_airport, [["Denver International", "DEN"],
-                                    ["Hartsfield/Jackson International", "ATL"],
-                                    ["Los Angeles International", "LAX"],
-                                    ["Chicago O'Hare International", "ORD"],
-                                    ["Kennedy International", "JFK"]] %>
-
-  <%= f.label :departure_date, "Departure Date: " %>
-  <%= f.date_field :departure_date, value: Date.today, min: Date.today %>
-
-  <%= f.label :trip_duration, "Trip duration: " %>
-  <%= f.number_field :trip_duration, value: 1, min: 1 %> days
-
-  <%= f.submit "Lucky Location", onclick: "myMove();"%>
-
-  <% if current_user %>
-    <%= f.submit "Search Locations", onclick: "myMove();" %>
-  <% else %>
-    <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
-  <% end %>
-  <br>
-  <br>
-  <br>
-  <div id ="planeBackground">
-<%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
-<div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %></div>
+<div id ="planeBackground">
+  <%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
+  <div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %></div>
 </div>
 
 
