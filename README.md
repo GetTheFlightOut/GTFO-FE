@@ -23,7 +23,7 @@ To view the production site, please visit the [GTFO link](https://gtfo-fe.heroku
 To view the other components of the application please visit the [Github Project Organization](https://github.com/GetThatFlightOut).
 
 SOA System Design:
-![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
+![Screen Shot 2021-01-14 at 8 47 13 AM](https://user-images.githubusercontent.com/68167430/104614507-8e982580-5645-11eb-930b-c380d62d13c4.png)
 
   ### API Endpoints pulled from backend
 
