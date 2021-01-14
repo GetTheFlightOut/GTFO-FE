@@ -31,8 +31,6 @@ describe 'when I click on a link to show a specific flight' do
     expect(page).to have_css(".TripArrTime")
     expect(page).to have_css(".TripRDepTime")
     expect(page).to have_css(".TripRArrTime")
-    expect(page).to have_css(".TripFeels")
-    expect(page).to have_css(".TripWeatherDesc")
     expect(page).to have_css(".TripBooking")
     expect(".Price").to_not be_empty
     expect(".TripOrigin").to_not be_empty
@@ -41,11 +39,9 @@ describe 'when I click on a link to show a specific flight' do
     expect(".TripArrTime").to_not be_empty
     expect(".TripRDepTime").to_not be_empty
     expect(".TripRArrTime").to_not be_empty
-    expect(".TripFeels").to_not be_empty
-    expect(".TripWeatherDesc").to_not be_empty
     expect(".TripBooking").to_not be_empty
 
-    expect(page).to have_link("Click Here To Book")
+    expect(page).to have_button("Book Your Flight")
 
     within '.home-link' do
       expect(page).to have_link

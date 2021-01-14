@@ -32,19 +32,29 @@
         </div>
       </div>
     </div>
-    <p class="TripBooking"><%= link_to "Click Here To Book", @trip.booking_link %></p>
+    <p class="TripBooking"><%= button_to("Book Your Flight", @trip.booking_link, class: 'myButton') %></p>
   </div>
 
   <div class ='weather'>
-  <p class="TripFeels">Temperature Feels Like: <%= @trip.day_feels_like_f.round(1) %> °F</p>
-  <p class="TripWeatherDesc">Weather Description: <%= @trip.description %></p>
+    <% @trip.weekly_forecast.each do |day| %>
+    <div class='weather-day'>
+      <div class="weather-image">
+        <%= image_tag(day.image_path, class: "weather-icon") %>
+        <div class="weather-temp">
+          <p><%= day.date.to_date.strftime("%m/%d/%Y")%></p>
+          <p>Feels like: <%= day.day_feels_like_f.round(0)%>°</p>
+          <p>Hi: <%= day.max_f.round(0)%>° Lo: <%=day.min_f.round(0)%>°</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
   <div class='explore-accomidations'>
-  <p class="TripAirbnb">
+  <div class="TripAirbnb-container">
   <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
-  </p>
+  </div>
 
-  <p class="TripHotels">
+  <div class="TripHotels-container">
   <%= link_to image_tag("hotels.jpeg", class: 'TripHotels'), "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}" %>
-  </p>
+  </div>
 </div>
