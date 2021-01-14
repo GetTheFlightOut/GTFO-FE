@@ -78,4 +78,16 @@ describe 'Trip' do
       expect(@test_flight.date_convert(@flight_json[:attributes][:departure_datetime])).to eq('2021-02-28')
     end
   end
+
+  describe 'trip get weather' do
+    it 'returns an array of weather objects' do
+      json_data = File.read('spec/fixtures/flights.json')
+      flight_info = JSON.parse(json_data, symbolize_names: true)
+      @weekly_weather_data = flight_info[:data][0][:attributes][:weather]
+      trip = Trip.new(flight_info[:data][0])
+      expect(trip.get_weather(@weekly_weather_data)).to be_a Array
+      expect(trip.get_weather(@weekly_weather_data)[0]).to be_a WeatherDay
+      expect(trip.get_weather(@weekly_weather_data).count).to eq(8)
+    end
+  end
 end
