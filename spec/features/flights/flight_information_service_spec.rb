@@ -56,7 +56,7 @@ describe 'flight service' do
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
 
-    expect(current_path).to eq(flight_show_path('773'))
+    expect(current_path).to eq(flight_show_path('777'))
 
     expect(page).to have_content('Las Vegas')
   end
@@ -179,16 +179,16 @@ describe 'flight service' do
     expect(page).to_not have_css(".warm-trips")
 
     within ".cool-trips" do
-      expect(page).to have_content("Fort Lauderdale")
-      expect(page).to have_content("Feels Like: 54.0")
+      expect(page).to have_content("Los Angeles")
+      expect(page).to have_content("Feels Like: 54.9")
     end
 
     within ".cold-trips" do
       expect(page).to have_content("Washington, D.C.")
-      expect(page).to have_content("Feels Like: 33.3")
+      expect(page).to have_content("Feels Like: 43.7")
 
       expect(page).to have_content("Salt Lake City")
-      expect(page).to have_content("Feels Like: 32.5")
+      expect(page).to have_content("Feels Like: 34.8")
     end
   end
 end

@@ -13,7 +13,11 @@
 
 ## What it does
 
-This project part of a Service-Oriented Architecture (SOA) application. The GTFO-BE serves as pass through of API data from our microservice repos (Weather API and Flight API) to the GTFO-FE repo.
+This project part of a Service-Oriented Architecture (SOA) application that provides users with flight and weather information based on search parameters that the user provides. The GTFO-FE serves as the user facing part of the application that a user can interact with. A user provides information through a form and is returned flight and weather information. The front end aplpication makes a call to the backend application, which in turn calls the Weather and Flight APIs and combines the data from both APIs into one JSON package to send to the front end.
+
+To view the production site, please visit the [GTFO link](https://gtfo-fe.herokuapp.com/).
+
+To view the other components of the application please visit the [Github Project Organization](https://github.com/GetThatFlightOut).
 
 SOA System Design:
 ![GTFO SOA](https://user-images.githubusercontent.com/7945439/104348765-5b2b8e80-54bf-11eb-9505-931e5767533a.png)
@@ -88,6 +92,12 @@ git clone git@github.com:GetThatFlightOut/GTFO-FE.git
 cd GTFO-FE
 bundle install
 rake db:{create,migrate}
+firgaro install
+# Setup ENV Variables in application.yml: 
+# BACKEND_URL: "http://localhost:3000" (or "https://gtfo-be.herokuapp.com to connect to BE server)
+# GOOGLE_CLIENT_ID: YOUR-GOOGLE-CLIENT-ID
+# GOOGLE_SECRET: YOUR-GOOGLE_SECRET_KEY
+# WEBMOCK: 'true' (or false to test against backend connection server)
 rails server
 visit localhost:3000 in your web browser
 ```

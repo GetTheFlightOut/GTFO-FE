@@ -30,7 +30,7 @@ describe 'Trip' do
     expect(@test_flight.weekly_forecast.count).to eq(8)
 
     expected = @test_flight.weekly_forecast[0].sky_coverage
-    actual = @flight_json[:attributes][:weather][0][:attributes][:sky_coverage]
+    actual = @flight_json[:attributes][:weather][0][:data][:attributes][:sky_coverage]
 
     expect(expected).to eq(actual)
   end
@@ -41,9 +41,9 @@ describe 'Trip' do
       trips = JSON.parse(json, symbolize_names: true)[:data].map do |trip_info|
         Trip.new(trip_info)
       end
-      
+
       hot, warm, cool, cold = Trip.group_by_weather(trips)
-      
+
       expect(hot).to be_a Array
       expect(hot.all? { |trip| trip.instance_of?(Trip) }).to eq(true)
       expected = hot.all? { |trip| trip.day_feels_like_f >= 85 }
@@ -75,7 +75,7 @@ describe 'Trip' do
 
   describe 'instance methods' do
     it 'can covert strptime to strftime format' do
-      expect(@test_flight.date_convert(@flight_json[:attributes][:departure_datetime])).to eq('2021-01-30')
+      expect(@test_flight.date_convert(@flight_json[:attributes][:departure_datetime])).to eq('2021-02-28')
     end
   end
 end
