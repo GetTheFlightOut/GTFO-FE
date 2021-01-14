@@ -4,11 +4,11 @@
     <th class='trip-column-name'>Total Price</th>
     <th class='trip-column-name'>Weather</th>
   </tr>
-  <tr class="Flight" id="flight-<%=trip.flight_id%>">
+  <tr class="Flight" id="flight-<%=trip.id%>">
     <div class="trip-table-separator">
       <td class="DestinationCity">
         <div class="trip-table-info">
-            <%= link_to trip.destination_city, flight_show_path(trip.flight_id) %>
+            <%= link_to trip.destination_city, flight_show_path(trip.id) %>
         </div>
       </td>
     </div>

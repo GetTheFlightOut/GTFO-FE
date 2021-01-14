@@ -4,7 +4,7 @@ describe WeatherFacade, type: :facade do
   before :each do
     json_data = File.read('spec/fixtures/flights.json')
     flight_info = JSON.parse(json_data, symbolize_names: true)
-    @weekly_weather_data = flight_info[:data][0][:attributes][:weather]
+    @weekly_weather_data = flight_info[:included][0][:attributes][:weather]
   end
 
   it 'returns an array of weather objects' do
