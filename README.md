@@ -233,7 +233,7 @@ Search Locations Search Returning No Results
    
 ## Acknowledgments
 
-Thank you to [Alyssa Bull](https://github.com/alyssabull/) [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alyssa-bull/) and Bailey Dunning [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/baileydunning/) for your advice and help on styling!
+Thank you to [Alyssa Bull](https://github.com/alyssabull/) [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alyssa-bull/) and [Bailey Dunning](https://github.com/baileydunning) [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/baileydunning/) for your advice and help on styling!
 
 And thank you to Ian Douglas and Dione Wilson for being such amazing instructors and guiding us through this project!
 
