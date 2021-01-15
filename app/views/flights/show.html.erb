@@ -33,7 +33,8 @@
       </div>
     </div>
     <% if current_user %>
-      <p class="TripBooking"><%= button_to("Book Your Flight", @trip.booking_link, class: 'myButton', method: :get) %></p>
+      <p class="TripBooking">
+        <%= link_to("Book Your Flight", @trip.booking_link, class: 'myButton') %></p>
     <% else %>
       <p>Please <%= link_to "login with Google", google_login_path %> to book this flight!</p>
     <% end %>
