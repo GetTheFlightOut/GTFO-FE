@@ -160,6 +160,15 @@ visit localhost:3000 in your web browser
 ```
 
 ## Dependencies
+
+* We used Rails version `5.2.4.4`
+
+* We used the [Faraday Gem](https://github.com/lostisland/faraday) to make calls to our API service.
+
+* We used the [Figaro Gem](https://github.com/laserlemon/figaro) to keep confidential information like API keys secure.
+
+* The [SimpleCov](https://github.com/simplecov-ruby/simplecov) gem was used to ensure that we covered 100% of our code with unit testing. 
+
 ## Testing
 
 Webmock is used for testing and can be toggled with the environment variable WEBMOCK, set as string 'true' or 'false'.
@@ -225,6 +234,8 @@ Search Locations Search Returning No Results
 ## Acknowledgments
 
 Thank you to [Alyssa Bull](https://github.com/alyssabull/) [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alyssa-bull/) and Bailey Dunning [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/baileydunning/) for your advice and help on styling!
+
+And thank you to Ian Douglas and Dione Wilson for being such amazing instructors and guiding us through this project!
 
 <!-- MARKDOWN LINKS -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
