@@ -13,28 +13,20 @@ class FlightsController < ApplicationController
 
   def search
     if params[:commit] == 'Search Locations'
-
       @request_id = SearchFacade.get_request(flight_params)
 
-      if @request_id == []
-        redirect_to root_path, notice: 'There were no available trips that matched your search.'
-      else
-        return error_flash(@request_id) if @request_id.instance_of?(String)
+      return error_flash(@request_id) if @request_id.instance_of?(String)
 
-        redirect_to flights_requests_path(@request_id)
-      end
+      redirect_to flights_requests_path(@request_id)
+
     elsif params[:commit] == 'Lucky Location'
 
       @trip_id = SearchFacade.get_lucky(flight_params)
 
-      if @trip_id == []
-        redirect_to root_path, notice: 'There were no available trips that matched your search.'
-      else
-        return error_flash(@trip_id) if @trip_id.instance_of?(String)
+      return error_flash(@trip_id) if @trip_id.instance_of?(String)
 
-        params[:trip_id] = @trip_id
-        redirect_to flight_show_path(@trip_id)
-      end
+      params[:trip_id] = @trip_id
+      redirect_to flight_show_path(@trip_id)
 
     end
   end
@@ -50,9 +42,4 @@ class FlightsController < ApplicationController
     redirect_to root_path
   end
 
-  def write_to_cache(trips)
-    trips.each do |trip|
-      Rails.cache.write(trip.flight_id, trip)
-    end
-  end
 end

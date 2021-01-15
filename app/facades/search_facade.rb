@@ -11,18 +11,6 @@ class SearchFacade
     end
   end
 
-  def self.get_flights(params)
-    params[:limit] = 20
-    flight_data = BackendService.trips_search(update_params(params))
-
-    if flight_data[:data]
-      flight_data[:data][:request_id].to_i
-
-    elsif flight_data[:error]
-      flight_data[:error]
-    end
-  end
-
   def self.get_request(params)
     params[:limit] = 20
     flight_data = BackendService.trips_search(update_params(params))
