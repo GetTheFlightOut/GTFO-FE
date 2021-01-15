@@ -224,5 +224,7 @@ Search Locations Search Returning No Results
    
 ## Acknowledgments
 
+Thank you to [Alyssa Bull](https://github.com/alyssabull/) [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alyssa-bull/) and Bailey Dunning [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/baileydunning/) for your advice and help on styling!
+
 <!-- MARKDOWN LINKS -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
