@@ -2,6 +2,7 @@
 ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/gem/v/sinatra)
 ![](https://img.shields.io/gem/v/fast_jsonapi)
+![](https://img.shields.io/travis/com/GetThatFlightOut/GTFO-FE)
 ![](https://img.shields.io/github/contributors/GetThatFlightOut/GTFO-FE)
 ![](https://img.shields.io/badge/GetThatFlightOut-FE-red)
 ![](https://github.com/GetThatFlightOut/GTFO-FE/stargazers)
