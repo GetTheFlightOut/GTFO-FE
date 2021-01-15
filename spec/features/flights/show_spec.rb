@@ -137,6 +137,7 @@ describe 'when I click on a link to show a specific flight' do
     click_button('Lucky Location')
 
     expect(page).to have_content("Please login with Google to book this flight!")
+    expect(page).to have_link("login with Google")
   end
 
   it "shows a message to book the flight if I'm logged in" do
