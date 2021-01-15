@@ -53,7 +53,7 @@ describe 'when I click on a link to show a specific flight' do
     expect('.TripRArrTime').to_not be_empty
     expect('.TripBooking').to_not be_empty
 
-    expect(page).to have_button('Book Your Flight')
+    expect(page).to have_link('Book Your Flight')
 
     within '.home-link' do
       expect(page).to have_link
@@ -165,6 +165,6 @@ describe 'when I click on a link to show a specific flight' do
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
 
-    expect(page).to have_button("Book Your Flight")
+    expect(page).to have_link("Book Your Flight")
   end
 end
