@@ -83,8 +83,8 @@ describe 'Trip' do
     it 'returns an array of weather objects' do
       json_data = File.read('spec/fixtures/flights.json')
       flight_info = JSON.parse(json_data, symbolize_names: true)
-      @weekly_weather_data = flight_info[:data][0][:attributes][:weather]
-      trip = Trip.new(flight_info[:data][0])
+      @weekly_weather_data = flight_info[:included][0][:attributes][:weather]
+      trip = Trip.new(flight_info[:included][0])
       expect(trip.get_weather(@weekly_weather_data)).to be_a Array
       expect(trip.get_weather(@weekly_weather_data)[0]).to be_a WeatherDay
       expect(trip.get_weather(@weekly_weather_data).count).to eq(8)
