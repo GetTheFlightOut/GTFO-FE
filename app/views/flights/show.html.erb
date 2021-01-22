@@ -34,7 +34,7 @@
     </div>
     <% if current_user %>
       <p class="TripBooking">
-        <%= link_to("Book Your Flight", @trip.booking_link, class: 'myButton') %></p>
+        <%= link_to("Book Your Flight", @trip.booking_link, target: '_blank', class: 'myButton') %></p>
     <% else %>
       <p>Please <%= link_to "login with Google", google_login_path %> to book this flight!</p>
     <% end %>
@@ -56,10 +56,10 @@
   </div>
   <div class='explore-accomidations'>
   <div class="TripAirbnb-container">
-  <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
+  <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}", target: '_blank' %>
   </div>
 
   <div class="TripHotels-container">
-  <%= link_to image_tag("hotels.jpeg", class: 'TripHotels'), "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}" %>
+  <%= link_to image_tag("hotels.jpeg", class: 'TripHotels'), "https://www.hotels.com/search.do?q-destination=#{@trip.destination_city}&q-check-in=#{@trip.arrival_date}&q-check-out=#{@trip.r_departure_date}", target: '_blank' %>
   </div>
 </div>
