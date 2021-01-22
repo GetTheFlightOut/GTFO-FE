@@ -13,11 +13,36 @@
  */
 @import "bootstrap";
 
+// @font-face {
+//   font-family: 'OstrichCustom';
+//   src: url("OstrichSansInline-Regular.otf");
+//   font-family: 'SciFlyCustom';
+//   src: url("SciFly-San.ttf");
+//   font-family: 'gagalinregular';
+//   src: url('/app/assets/fonts/Gagalin-Regular.ttf');
+// }
+
+// @font-face {
+//     font-family: 'gagalinregular';
+//     src: url('/app/assets/fonts/gagalin-regular-webfont.woff2') format('woff2'),
+//          url('/app/assets/fonts/gagalin-regular-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+@font-face {
+    font-family: 'gagalinregular';
+    src: url('/assets/Gagalin-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'SciFlyCustom';
+  src: url("/assets/SciFly-Sans.ttf");
+}
+
 @font-face {
   font-family: 'OstrichCustom';
-  src: url("OstrichSansInline-Regular.otf");
-  font-family: 'SciFlyCustom';
-  src: url("SciFly-San.ttf");
+  src: url("/assets/OstrichSansInline-Regular.otf");
 }
 
 $mylogo-blue: #81dee4;
@@ -31,6 +56,37 @@ $myborder-blackish: #414040;
 $mybox-cream: #ccc2ab;
 $mystandard-font-family: 'SciFlyCustom';
 $mybox-white: #fdfffc;
+
+.welcome-text{
+  font-family: 'gagalinregular', 'Arial Black', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.app-description {
+  font-family: 'gagalinregular', 'Arial Black', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: large;
+}
+
+.login-link {
+  font-family: 'gagalinregular'
+}
+
+.flash-messages {
+  font-family: 'gagalinregular'
+}
+
+.show-page {
+  font-family: 'gagalinregular', 'Arial Black', sans-serif;
+}
+
+h3 {
+  font-family: 'gagalinregular', 'Arial Black', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
 
 .show-page{
   margin-top: 0em;
@@ -82,10 +138,6 @@ $mybox-white: #fdfffc;
   margin-top: 0em;
   border-radius: 25px;
   box-shadow: 2px 5px #363631;
-}
-
-.show-title{
-  font-family: 'OstrichCustom';
 }
 
 .flights{
@@ -150,10 +202,66 @@ $mybox-white: #fdfffc;
 
 .origin{
   padding-top: 35px;
+  background: $mylogo-blue;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'gagalinregular';
+  box-shadow: 2px 5px #363631;
 }
 
 .destination{
   padding-top: 35px;
+  background: $mylogo-green;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'gagalinregular';
+  box-shadow: 2px 5px #363631;
+}
+
+.trip-times-leave{
+  padding-top: 35px;
+  background: $mylogo-yellow;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'gagalinregular';
+  box-shadow: 2px 5px #363631;
+}
+
+.trip-times-return{
+  padding-top: 35px;
+  background: $mylogo-red;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'gagalinregular';
+  box-shadow: 2px 5px #363631;
+}
+
+.Price {
+  background: $mybox-white;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'gagalinregular';
+  box-shadow: 1px 3px #363631;
 }
 
 .trip-dest-show{
@@ -192,7 +300,7 @@ $mybox-white: #fdfffc;
 
 
 h1 {
-  font-family: 'OstrichCustom';
+  font-family: 'gagalinregular';
 }
 
 body {
@@ -236,11 +344,13 @@ h3 {
 
 .temperature-box {
   background: $mybox-cream;
-  margin: 20px;
+  margin: 10px;
   padding: 2%;
-  border-radius: 30px;
+  border-radius: 10px;
   opacity: 92%;
-  border: 10px solid $mylogo-blackish;
+  border: 5px solid $mylogo-blackish;
+  box-shadow: 2px 5px #363631;
+  background: $mybox-cream;
 }
 
 .trip-info-table {
@@ -252,6 +362,7 @@ h3 {
   padding: 50px;
   margin: 25px;
   width: 700px;
+  font-family: gagalinregular;
 }
 
 .DestinationCity {
@@ -336,7 +447,18 @@ h3 {
   border: 5px solid $mylogo-blackish;
   opacity: 92%;
   text-align: center;
-  border-radius: 25px;
+}
+
+.search-box {
+  background: $mylogo-blue;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 40px;
+  font-family: 'gagalinregular';
+  box-shadow: 1.5px 4px #363631;
 }
 
 .trip-table-info {
@@ -348,12 +470,27 @@ h3 {
   text-align: center;
 }
 
+.white-box {
+  background: $mybox-white;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  border-radius: 40px;
+  box-shadow: 1.5px 4px #363631;
+}
+
 .weather-image-box {
   background: $mybox-white;
   margin: 10px;
   border: 5px solid $mylogo-blackish;
   opacity: 92%;
   text-align: center;
+  border-radius: 40px;
+  box-shadow: 2px 5px #363631;
 }
 
 .trip-table-separator {
@@ -386,6 +523,33 @@ h3 {
   border-radius: 10px;
 }
 
+.red-box {
+  background: $mylogo-red;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+  width: 200px;
+  margin-left: 150px;
+  float:left;
+  height:100px;
+}
+
+.green-box {
+  background: $mylogo-green;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 10px;
+  width: 200px;
+  margin-right: 150px;
+  float: right;
+  height: 100px;
+}
 
 .myButton {
 	box-shadow: 3px 4px 0px 0px #899599;
@@ -396,7 +560,7 @@ h3 {
 	display:inline-block;
 	cursor:pointer;
 	color:#3a8a9e;
-	font-family:Arial;
+	font-family:gagalinregular;
 	font-size:17px;
 	padding:7px 25px;
 	text-decoration:none;
