@@ -27,7 +27,7 @@ describe 'when I click on a link to show a specific flight' do
 
     visit '/'
 
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
@@ -100,7 +100,7 @@ describe 'when I click on a link to show a specific flight' do
 
     visit '/'
 
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
@@ -131,7 +131,7 @@ describe 'when I click on a link to show a specific flight' do
 
     visit '/'
 
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
@@ -160,7 +160,7 @@ describe 'when I click on a link to show a specific flight' do
 
     visit '/'
 
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
