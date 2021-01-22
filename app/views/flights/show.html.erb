@@ -43,11 +43,17 @@
     <% else %>
       <p>Please <%= link_to "login with Google", google_login_path %> to book this flight!</p>
     <% end %>
+    <br>
+  </div><br>
+
+  <div class ='weather-header'>
+    <h3>This Week's Weather</h3>
   </div>
 
   <div class ='weather'>
-    <% @trip.weekly_forecast.each do |day| %>
-    <div class='weather-day'>
+    <% @trip.weekly_forecast.each_with_index do |day, index| %>
+    <% index -= 4 if index > 3 %>
+    <div class=<%="weather-day-#{index}"%>>
       <div class="weather-image">
         <div class="weather-temp">
           <p><%= day.date.to_date.strftime("%m/%d/%Y")%></p>
@@ -61,6 +67,11 @@
     </div>
     <% end %>
   </div>
+
+  <div class ='weather-header'>
+    <h3>Book Accomodations</h3>
+  </div><br>
+
   <div class='explore-accomidations'>
   <div class="TripAirbnb-container">
   <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}" %>
