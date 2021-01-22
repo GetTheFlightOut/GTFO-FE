@@ -48,48 +48,60 @@ function myMove_left() {
 <!-- <div class="main-container"> -->
 <div class="temperature-box">
 
-<div align="center">
-<h1>Welcome to Get The F(light) Out!</h1>
+  <div align="center">
+    <div class="weather-image-box">
+      <div class="welcome-text">
+        <h3>Welcome to</h3>
+        <h1>Get The Flight Out</h1>
+      </div>
+    </div>
+    <br>
+    <%= image_tag 'gotta_go_yellow', size: 200 %>
+    <%= image_tag 'logo_final', size: 200 %>
 
+    <div class="white-box">
+      <p class='app-description'>
+        Get The Flight Out is a travel application built for people who just want
+        to get out. Enter your origin airport, departure date & duration, & we'll
+        give you some great deals to choose from. We'll even sort them by weather while we're at it.
+        <br><br>
+        Want a random great deal? Click 'Lucky Location'
+        <br><br>
+        Want the 20 best deals? Log in & Click 'Search Locations'
+      </p>
+    </div>
 
-<h3>Gotta go? GTFO.</h3>
+    <div class="search-box">
+      <%= form_with url: "/flights/search", method: :get, local: true do |f| %>
 
-<p>
-  Get The F(light) Out! is a travel application built for people who just want
-  to get out. Enter your origin airport, departure date and duration, and we'll
-  give you some great deals to choose from, complete with weather information.
-</p>
+        <%= f.label :departure_airport, "Departure Airport: " %>
+        <%= f.select :departure_airport, [["Denver International", "DEN"],
+                                          ["Hartsfield/Jackson International", "ATL"],
+                                          ["Los Angeles International", "LAX"],
+                                          ["Chicago O'Hare International", "ORD"],
+                                          ["Kennedy International", "JFK"]] %><br>
 
-<%= form_with url: "/flights/search", method: :get, local: true do |f| %>
+        <%= f.label :departure_date, "Departure Date: " %>
+        <%= f.date_field :departure_date, value: Date.today, min: Date.today %><br>
 
-  <%= f.label :departure_airport, "Departure Airport: " %>
-  <%= f.select :departure_airport, [["Denver International", "DEN"],
-                                    ["Hartsfield/Jackson International", "ATL"],
-                                    ["Los Angeles International", "LAX"],
-                                    ["Chicago O'Hare International", "ORD"],
-                                    ["Kennedy International", "JFK"]] %>
+        <%= f.label :trip_duration, "Trip duration: " %>
+        <%= f.number_field :trip_duration, value: 1, min: 1 %> days
 
-  <%= f.label :departure_date, "Departure Date: " %>
-  <%= f.date_field :departure_date, value: Date.today, min: Date.today %>
+    </div>
+        <%= f.submit "Lucky Location", onclick: "checkFields('departure_date', 'trip_duration'); ", class: "myButton"%>
 
-  <%= f.label :trip_duration, "Trip duration: " %>
-  <%= f.number_field :trip_duration, value: 1, min: 1 %> days
-
-  <%= f.submit "Lucky Location", onclick: "checkFields('departure_date', 'trip_duration'); ", class: "myButton"%>
-
-  <% if current_user %>
-    <%= f.submit "Search Locations", onclick: "checkFields('departure_date', 'trip_duration');", class: "myButton" %>
-  <% else %>
-    <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
-  <% end %>
-  <br>
-  <br>
-  <br>
-  <div id ="planeBackground">
-<%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
-<div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %></div>
-</div>
-</div>
+        <% if current_user %>
+          <%= f.submit "Search Locations", onclick: "checkFields('departure_date', 'trip_duration');", class: "myButton" %>
+        <% else %>
+          <br><br>
+          <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
+        <% end %>
+    <div id ="planeBackground">
+      <%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
+      <div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
