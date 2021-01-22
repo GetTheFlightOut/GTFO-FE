@@ -20,7 +20,7 @@ describe 'flight service' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(true)
 
     visit '/'
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Search Locations')
@@ -62,7 +62,7 @@ describe 'flight service' do
 
     visit '/'
 
-    select 'Denver International', from: 'departure_airport'
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
     click_button('Lucky Location')
@@ -84,6 +84,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2028-01-30'
     fill_in 'trip_duration', with: 3
 
@@ -110,6 +111,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
 
@@ -135,7 +137,7 @@ describe 'flight service' do
 
     visit '/'
 
-    select "Denver International", from: "departure_airport"
+    select "Denver (DIA)", from: "departure_airport"
     fill_in "departure_date", with: "2021-01-30"
     fill_in "trip_duration", with: 500
     click_button("Lucky Location")
@@ -157,7 +159,7 @@ describe 'flight service' do
 
     visit '/'
 
-    select "Denver International", from: "departure_airport"
+    select "Denver (DIA)", from: "departure_airport"
     fill_in "departure_date", with: "2021-01-30"
     fill_in "trip_duration", with: 500
     click_button("Search Locations")
@@ -187,6 +189,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
 
