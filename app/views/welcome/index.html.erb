@@ -87,7 +87,7 @@ function myMove_left() {
         <%= f.label :trip_duration, "Trip duration: " %>
         <%= f.number_field :trip_duration, value: 1, min: 1 %> days
 
-    </div><br>
+    <br>
         <%= f.submit "Lucky Location", onclick: "checkFields('departure_date', 'trip_duration'); ", class: "myButton"%>
 
         <% if current_user %>
@@ -96,6 +96,7 @@ function myMove_left() {
           <br><br>
           <p class="login-link"><%= link_to "Log In with Google", google_login_path %> to search more than one search result</p>
         <% end %>
+    </div>
     <div id ="planeBackground">
       <%= image_tag 'plane_bkgrnd.png', id: "planeBackground" %>
       <div id="planeImage"><%= image_tag 'welcome_plane.png', style: "width:150px;" %>
