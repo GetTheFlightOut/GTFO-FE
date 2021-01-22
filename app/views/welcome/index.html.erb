@@ -63,10 +63,10 @@ function myMove_left() {
 <%= form_with url: "/flights/search", method: :get, local: true do |f| %>
 
   <%= f.label :departure_airport, "Departure Airport: " %>
-  <%= f.select :departure_airport, [["Atlanta (ATL)", "ATL"],
-                                    ["Chicago (ORD)", "ORD"],
-                                    ["Denver (DIA)", "DEN"],
+  <%= f.select :departure_airport, [["Denver (DIA)", "DEN"],
+                                    ["Atlanta (ATL)", "ATL"],
                                     ["Los Angeles (LAX)", "LAX"],
+                                    ["Chicago (ORD)", "ORD"],
                                     ["New York (JFK)", "JFK"]] %>
 
   <%= f.label :departure_date, "Departure Date: " %>
