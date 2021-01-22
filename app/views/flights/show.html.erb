@@ -49,9 +49,11 @@
     <% @trip.weekly_forecast.each do |day| %>
     <div class='weather-day'>
       <div class="weather-image">
-        <%= image_tag(day.image_path, class: "weather-icon") %>
         <div class="weather-temp">
           <p><%= day.date.to_date.strftime("%m/%d/%Y")%></p>
+          <div class="weather-image">
+            <%= image_tag(day.image_path, class: "weather-icon") %>
+          </div>
           <p>Feels like: <%= day.day_feels_like_f.round(0)%>°</p>
           <p>Hi: <%= day.max_f.round(0)%>° Lo: <%=day.min_f.round(0)%>°</p>
         </div>

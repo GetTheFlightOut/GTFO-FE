@@ -170,7 +170,7 @@ h3 {
   border-width: 0.25em;
   text-align: center;
   border-radius: 25px;
-  box-shadow: 2px 5px #363631;
+  box-shadow: 1px 3px #363631;
   margin-top: 2em;
 }
 
@@ -187,10 +187,8 @@ h3 {
 }
 
 .weather-temp{
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .weather-temp p{
@@ -495,6 +493,17 @@ h3 {
   text-align: center;
   border-radius: 20px;
   box-shadow: 2px 5px #363631;
+}
+
+.weather-day {
+  background: $mybox-white;
+  margin: 3px;
+  padding:4px;
+  border: 2px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: .5px 2px #363631;
 }
 
 .welcome-title-box {
