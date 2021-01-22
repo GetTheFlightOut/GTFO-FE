@@ -6,13 +6,15 @@
   <div class='flight-details-show'>
     <div class="trip-dest-show">
       <div class='origin'>
-        <h4 class="TripOrigin">Origin City: <%= @trip.origin_city %></h4>
+        <h4 class="TripOrigin">Origin City:</h4>
+        <h2><%= @trip.origin_city %></h2>
       </div>
       <div class="image">
         <%= image_tag("plane", class: 'plane-image') %>
       </div>
       <div class="destination">
-        <h4 class="TripDestination">Destination: <%= @trip.destination_city %></h4>
+        <h4 class="TripDestination">Destination:</h4>
+        <h2><%= @trip.destination_city %></h2>
       </div>
     </div>
     <div class="trip-details-show">
@@ -23,17 +25,18 @@
       <br>
       <div class=flights>
         <div class="trip-times-leave">
-          <p>Departure Trip</p>
+          <h4>Departure Trip</h4><br>
           <p class="TripDepTime">Depart: <%= @trip.departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%> </p>
           <p class="TripArrTime">Arrive: <%= @trip.arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%></p>
         </div>
         <div class="trip-times-return">
-          <p>Return Trip</p>
+          <h4>Return Trip</h4><br>
           <p class="TripRDepTime">Depart: <%= @trip.r_departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
           <p class="TripRArrTime">Arrive: <%= @trip.r_arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
         </div>
       </div>
     </div>
+    <br>
     <% if current_user %>
       <p class="TripBooking">
         <%= link_to("Book Your Flight", @trip.booking_link, class: 'myButton') %></p>
