@@ -346,7 +346,7 @@ h3 {
   background: $mybox-cream;
   margin: 10px;
   padding: 2%;
-  border-radius: 10px;
+  border-radius: 30px;
   opacity: 92%;
   border: 5px solid $mylogo-blackish;
   box-shadow: 2px 5px #363631;
@@ -357,8 +357,7 @@ h3 {
   font-size: x-large;
   text-align: center;
   background: $mylogo-green;
-  border: 10px solid $mylogo-blackish;
-  border-radius: 25px;
+  border: 7px solid $mylogo-blackish;
   padding: 50px;
   margin: 25px;
   width: 700px;
@@ -377,9 +376,11 @@ h3 {
   padding-bottom: 25px;
   padding-left: 50px;
   padding-right: 50px;
-  border: 10px solid $mylogo-blackish;
-  border-radius: 10px;
+  border: 5px solid $mylogo-blackish;
   opacity: 92%;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 1px 4px #363631;
 }
 
 .flight-index-header-box {
@@ -404,12 +405,12 @@ h3 {
 
 .flight-index-header-biggest-box {
   background: $mybox-cream;
-  margin: 10px;
-  padding: 10px;
-  border: 10px solid $mylogo-blackish;
+  margin: 20px;
+  border: 5px solid $mylogo-blackish;
   opacity: 92%;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 60px;
+  box-shadow: 2px 5px #363631;
 }
 
 .temp-box-header {
@@ -417,13 +418,14 @@ h3 {
   margin: 20px;
   padding: 2%;
   border: 5px solid $mylogo-blackish;
-  border-radius: 5%;
+  border-radius: 50px;
   opacity: 92%;
   text-align: center;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  box-shadow: 2px 5px #363631;
 }
 
 .weather-text {
@@ -468,6 +470,8 @@ h3 {
   border: 5px solid $mylogo-blackish;
   opacity: 92%;
   text-align: center;
+  border-radius: 40px;
+  box-shadow: 1px 3px #363631;
 }
 
 .white-box {
@@ -489,6 +493,16 @@ h3 {
   border: 5px solid $mylogo-blackish;
   opacity: 92%;
   text-align: center;
+  border-radius: 20px;
+  box-shadow: 2px 5px #363631;
+}
+
+.welcome-title-box {
+  background: $mybox-white;
+  margin: 10px;
+  border: 5px solid $mylogo-blackish;
+  opacity: 92%;
+  text-align: center;
   border-radius: 40px;
   box-shadow: 2px 5px #363631;
 }
@@ -501,6 +515,7 @@ h3 {
   opacity: 92%;
   text-align: center;
   border-radius: 10px;
+  box-shadow: 1px 2px #363631;
 }
 
 .such-a-big-box {
