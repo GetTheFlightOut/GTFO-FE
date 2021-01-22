@@ -87,7 +87,7 @@ function myMove_left() {
         <%= f.label :trip_duration, "Trip duration: " %>
         <%= f.number_field :trip_duration, value: 1, min: 1 %> days
 
-    </div>
+    </div><br>
         <%= f.submit "Lucky Location", onclick: "checkFields('departure_date', 'trip_duration'); ", class: "myButton"%>
 
         <% if current_user %>
