@@ -6,47 +6,60 @@
   <div class='flight-details-show'>
     <div class="trip-dest-show">
       <div class='origin'>
-        <h4 class="TripOrigin">Origin City: <%= @trip.origin_city %></h4>
+        <h4 class="TripOrigin">Origin City:</h4>
+        <h2><%= @trip.origin_city %></h2>
       </div>
       <div class="image">
         <%= image_tag("plane", class: 'plane-image') %>
       </div>
       <div class="destination">
-        <h4 class="TripDestination">Destination: <%= @trip.destination_city %></h4>
+        <h4 class="TripDestination">Destination:</h4>
+        <h2><%= @trip.destination_city %></h2>
       </div>
     </div>
     <div class="trip-details-show">
       <div class="trip-price">
         <h5 class="Price">Price: $<%= @trip.price %></h5>
       </div>
+      <br>
+      <br>
       <div class=flights>
         <div class="trip-times-leave">
-          <p>Departure Trip</p>
+          <h4>Departure Trip</h4><br>
           <p class="TripDepTime">Depart: <%= @trip.departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%> </p>
           <p class="TripArrTime">Arrive: <%= @trip.arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p")%></p>
         </div>
         <div class="trip-times-return">
-          <p>Return Trip</p>
+          <h4>Return Trip</h4><br>
           <p class="TripRDepTime">Depart: <%= @trip.r_departure_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
           <p class="TripRArrTime">Arrive: <%= @trip.r_arrival_datetime.to_time.strftime("%A - %B %d, %Y @ %I:%M %p") %></p>
         </div>
       </div>
     </div>
+    <br>
     <% if current_user %>
       <p class="TripBooking">
         <%= link_to("Book Your Flight", @trip.booking_link, target: '_blank', class: 'myButton') %></p>
     <% else %>
       <p>Please <%= link_to "login with Google", google_login_path %> to book this flight!</p>
     <% end %>
+    <br>
+  </div><br>
+
+  <div class ='weather-header'>
+    <h3>This Week's Weather</h3>
   </div>
 
   <div class ='weather'>
-    <% @trip.weekly_forecast.each do |day| %>
-    <div class='weather-day'>
+    <% @trip.weekly_forecast.each_with_index do |day, index| %>
+    <% index -= 4 if index > 3 %>
+    <div class=<%="weather-day-#{index}"%>>
       <div class="weather-image">
-        <%= image_tag(day.image_path, class: "weather-icon") %>
         <div class="weather-temp">
           <p><%= day.date.to_date.strftime("%m/%d/%Y")%></p>
+          <div class="weather-image">
+            <%= image_tag(day.image_path, class: "weather-icon") %>
+          </div>
           <p>Feels like: <%= day.day_feels_like_f.round(0)%>°</p>
           <p>Hi: <%= day.max_f.round(0)%>° Lo: <%=day.min_f.round(0)%>°</p>
         </div>
@@ -54,6 +67,11 @@
     </div>
     <% end %>
   </div>
+
+  <div class ='weather-header'>
+    <h3>Book Accomodations</h3>
+  </div><br>
+
   <div class='explore-accomidations'>
   <div class="TripAirbnb-container">
   <%= link_to image_tag("air.png", class: 'TripAirbnb'), "https://airbnb.com/s/#{@trip.destination_city}/homes?checkin=#{@trip.arrival_date}checkout=#{@trip.r_departure_date}", target: '_blank' %>

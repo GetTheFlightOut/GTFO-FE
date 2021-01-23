@@ -6,7 +6,7 @@
 
 <% if !@hot_trips.empty? %>
   <div class='temperature-box'>
-    <h2 class='temp-box-header'>
+    <h1 class='temp-box-header'>
       <div class="temp-box-actual-header">
         Bring<br>Suntan Lotion
       </div>
@@ -16,7 +16,7 @@
       <div class="temp-box-temp-range">
         (85°F and up)
       </div>
-    </h2>
+    </h1>
       <section class="hot-trips">
         <%= render partial: 'flight_partial', collection: @hot_trips, as: :trip %>
       </section>
@@ -25,7 +25,7 @@
 
 <% if !@warm_trips.empty? %>
   <div class='temperature-box'>
-    <h2 class='temp-box-header'>
+    <h1 class='temp-box-header'>
       <div class="temp-box-actual-header">
         Bust Out<br>the Sandals
       </div>
@@ -35,7 +35,7 @@
       <div class="temp-box-temp-range">
         (70°F to 84°F)
       </div>
-    </h2>
+    </h1>
       <section class="warm-trips">
         <%= render partial: 'flight_partial', collection: @warm_trips, as: :trip %>
       </section>
@@ -44,7 +44,7 @@
 
 <% if !@cool_trips.empty? %>
 <div class='temperature-box'>
-  <h2 class='temp-box-header'>
+  <h1 class='temp-box-header'>
     <div class="temp-box-actual-header">
       Sweater<br>Weather
     </div>
@@ -54,7 +54,7 @@
     <div class="temp-box-temp-range">
       (50°F to 69°F)
     </div>
-  </h2>
+  </h1>
     <section class="cool-trips">
       <%= render partial: 'flight_partial', collection: @cool_trips, as: :trip %>
     </section>
@@ -63,7 +63,7 @@
 
 <% if !@cold_trips.empty? %>
   <div class='temperature-box'>
-    <h2 class='temp-box-header'>
+    <h1 class='temp-box-header'>
       <div class="temp-box-actual-header">
         Build a<br>Snowman
       </div>
@@ -73,7 +73,7 @@
       <div class="temp-box-temp-range">
         (below 50°F)
       </div>
-    </h2>
+    </h1>
       <section class="cold-trips">
         <%= render partial: 'flight_partial', collection: @cold_trips, as: :trip %>
       </section>

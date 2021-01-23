@@ -31,14 +31,14 @@ describe 'flight service' do
 
     within(first('.Flight')) do
       expect(page).to have_css('.DestinationCity')
-      expect(page).to have_css('.Price')
+      expect(page).to have_css('.price-table-info')
       expect(page).to have_css('.weather-text')
       expect(page).to have_css('.Weather_img')
     end
 
     within(:xpath, '(//tr[@class="Flight"])[last()]') do
       expect(page).to have_css('.DestinationCity')
-      expect(page).to have_css('.Price')
+      expect(page).to have_css('.price-table-info')
       expect(page).to have_css('.weather-text')
       expect(page).to have_css('.Weather_img')
     end
@@ -84,6 +84,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2028-01-30'
     fill_in 'trip_duration', with: 3
 
@@ -110,6 +111,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
 
@@ -187,6 +189,7 @@ describe 'flight service' do
 
     visit '/'
 
+    select 'Denver (DIA)', from: 'departure_airport'
     fill_in 'departure_date', with: '2021-01-30'
     fill_in 'trip_duration', with: 3
 
